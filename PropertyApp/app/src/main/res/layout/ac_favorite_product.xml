@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bggray"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/ac_fp_title"
+        layout="@layout/base_text_title" />
+
+    <View
+        android:id="@+id/ac_fp_title_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/ac_fp_title"
+        android:background="@color/linegray" />
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_fp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:visibility="visible">
+
+        <View
+            android:id="@+id/rl_bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/linegray" />
+
+        <TextView
+            android:id="@+id/tv_cancel_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_bottom_line"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="取消收藏" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lay_no_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_nomessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pic_no_message" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_nomessage"
+            android:layout_marginTop="40dp"
+            android:text="@string/there_is_no_news_yet"
+            android:textColor="@color/small_text_color_gray"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <com.glory.bianyitong.view.NewPullToRefreshView
+        android:id="@+id/fp_list_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_bottom_fp"
+        android:layout_below="@id/ac_fp_title_line"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <!--android:layout_above="@id/rl_bottom_ca"-->
+        <ListView
+            android:id="@+id/listView_fp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:divider="@null" />
+    </com.glory.bianyitong.view.NewPullToRefreshView>
+
+</RelativeLayout>

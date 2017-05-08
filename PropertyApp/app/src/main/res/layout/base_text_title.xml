@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@color/app_base_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <!--标题title-->
+    <RelativeLayout
+        android:id="@+id/left_return_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/iv_title_text_left2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/iv_title_back"
+            android:text="@string/return_back"
+            android:textColor="@color/tv_color_name"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/iv_title_text_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingRight="12dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/title_ac_text"
+        style="@style/main_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/text_color_title"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/iv_title_text_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="12dp" />
+</RelativeLayout>

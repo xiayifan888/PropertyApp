@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_ac_my_news"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_text_title" />
+
+    <include layout="@layout/base_view_line" />
+
+    <ListView
+        android:id="@+id/listView_mynews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="1dp"
+        android:visibility="visible">
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/lay_no_release"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_norelease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/pic_no_release" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_norelease"
+            android:layout_marginTop="40dp"
+            android:text="@string/you_have_not_posted_any_updates_yet"
+            android:textColor="@color/small_text_color_gray"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+</LinearLayout>

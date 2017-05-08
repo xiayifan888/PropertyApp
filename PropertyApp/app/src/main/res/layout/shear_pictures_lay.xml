@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_pic"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#aaaaaa"
+    android:fitsSystemWindows="true" >
+
+    <com.glory.bianyitong.widght.photoViewUtil.ClipZoomImageView
+        android:id="@+id/id_clipImageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.glory.bianyitong.widght.photoViewUtil.ClipImageBorderView
+        android:id="@+id/clipview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/bggray" >
+
+        <RelativeLayout
+            android:id="@+id/left_return_btn"
+            android:layout_width="42dip"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingBottom="10dip"
+            android:paddingLeft="20dip"
+            android:paddingRight="10dip"
+            android:paddingTop="10dip" >
+
+            <TextView
+                android:layout_width="12dip"
+                android:layout_height="20dip"
+                android:background="@drawable/icon_back"
+                android:gravity="center" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/the_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text_color_somber"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/save_btn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:paddingRight="15dip"
+            android:visibility="visible" >
+
+            <TextView
+                android:id="@+id/save_btn_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="保存"
+                android:textColor="@color/text_color_somber"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/line_title"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/linegray" />
+    </RelativeLayout>
+
+    <!--<RelativeLayout
+        android:id="@+id/rotating_btn"
+        android:layout_width="42dip"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dip"
+        android:background="@null" >
+
+        <TextView
+            android:layout_width="25dip"
+            android:layout_height="25dip"
+            android:layout_centerInParent="true"
+            android:background="@drawable/rotating_pic"
+            android:gravity="center" />
+    </RelativeLayout>-->
+
+</RelativeLayout>

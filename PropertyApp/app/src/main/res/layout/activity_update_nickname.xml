@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_text_title"></include>
+
+    <include layout="@layout/base_view_line"></include>
+
+    <com.glory.bianyitong.view.ContainsEmojiEditText
+        android:id="@+id/et_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:gravity="top"
+        android:maxLength="8"
+        android:padding="12dp"/>
+</LinearLayout>

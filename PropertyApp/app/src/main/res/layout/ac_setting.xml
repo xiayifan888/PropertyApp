@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bggray"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_text_title"></include>
+
+    <include layout="@layout/base_view_line"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="15dp"
+            android:text="@string/message_alert_settings"
+            android:textColor="@color/text_color_somber"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/check_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="@null"
+            android:button="@drawable/checkbox_style_click"
+            android:checked="true" />
+
+        <TextView
+            android:id="@+id/tv_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/check_remind"
+            android:padding="15dp"
+            android:text="@string/turned_on"
+            android:textColor="@color/small_text_color_gray"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <include layout="@layout/base_view_line_marginleft"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="15dp"
+            android:text="@string/verstion_information"
+            android:textColor="@color/text_color_somber"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="right"
+            android:padding="15dp"
+            android:text=""
+            android:textColor="@color/small_text_color_gray"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <include layout="@layout/base_view_line_marginleft"></include>
+
+    <RelativeLayout
+        android:id="@+id/lay_clean_cache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="15dp"
+            android:text="@string/clear_cache"
+            android:textColor="@color/text_color_somber"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/tv_cacheSize"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="right"
+            android:padding="15dp"
+            android:text=""
+            android:textColor="@color/small_text_color_gray"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <include layout="@layout/base_view_line_marginleft"></include>
+
+
+    <TextView
+        android:id="@+id/tv_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableRight="@drawable/ic_gray_next"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="15dp"
+        android:text="@string/about"
+        android:textColor="@color/text_color_somber"
+        android:textSize="15sp" />
+
+    <include layout="@layout/base_view_line"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <include layout="@layout/base_view_line"></include>
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/submit_bg_yellow"
+                android:text="@string/logout"
+                android:textColor="@color/text_color_somber"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

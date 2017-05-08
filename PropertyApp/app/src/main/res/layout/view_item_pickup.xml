@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_open_the_cabinet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/pic_my_head"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_express"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="28dp"
+        android:layout_toRightOf="@id/iv_open_the_cabinet">
+        <ImageView
+            android:id="@+id/iv_express_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_mynews"/>
+        <TextView
+            android:id="@+id/tv_express_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@id/iv_express_icon"
+            android:text="快件一"/>
+
+        <TextView
+            android:id="@+id/tv_express_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/iv_express_icon"
+            android:layout_marginTop="8dp"
+            android:background="@color/linegray"/>
+
+        <TextView
+            android:id="@+id/tv_express_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_express_line"
+            android:layout_marginTop="10dp"
+            android:text="xxxxxxxxxxxxxxxxx"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/item_express_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rl_express"
+        android:background="@color/linegray"/>
+
+</RelativeLayout>

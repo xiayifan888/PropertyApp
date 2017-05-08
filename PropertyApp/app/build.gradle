@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
+    defaultConfig {
+        applicationId "com.glory.bianyitong"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 31
+        versionName "1.1.2"
+        vectorDrawables.useSupportLibrary = true
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a','x86', 'x86_64', 'mips', 'mips64'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "9277c702a8da5583e569df5c", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile files('libs/universal-image-loader-1.9.3.jar')
+    //6.0运行时权限
+    compile 'com.lovedise:permissiongen:0.0.6'
+    //照片
+    compile project(':lib')
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //okgo
+    compile 'com.lzy.net:okgo:2.0.0'
+    compile 'com.lzy.net:okserver:1.1.0'
+    //字体
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+    //拖拽排序recyclerview
+    compile 'com.yanzhenjie:recyclerview-swipe:1.0.2'
+    compile project(':OneKeyShare')
+    compile project(':shareSDK')
+    compile files('libs/aliyun-oss-sdk-android-2.3.0.jar')
+    compile 'com.squareup.okhttp:okhttp:2.7.2'
+    compile files('libs/imageloader.jar')
+    compile 'cn.jiguang.sdk:jpush:3.0.0'  // 此处以JPush 3.0.0 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.0.0'  // 此处以JCore 1.0.0 版本为例。
+    //图片压缩
+//    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'io.reactivex:rxjava:1.1.6'
+//    compile 'top.zibin:Luban:1.0.8'
+}

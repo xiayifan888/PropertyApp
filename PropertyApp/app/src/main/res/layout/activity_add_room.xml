@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_text_title"></include>
+
+    <include layout="@layout/base_view_line"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tv_building_no2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="19dp"
+                android:text="@string/floor"
+                android:textColor="@color/text_color_somber"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_building_no"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@id/tv_building_no2"
+                android:drawablePadding="12dp"
+                android:drawableRight="@drawable/ic_gray_next"
+                android:gravity="center_vertical|right"
+                android:paddingLeft="16dp"
+                android:paddingRight="19dp"
+                android:text=""
+                android:textColor="@color/text_color_somber"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <include layout="@layout/base_view_line_marginleft"></include>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tv_cell_no2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="19dp"
+                android:text="@string/unit"
+                android:textColor="@color/text_color_somber"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_cell_no"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@id/tv_cell_no2"
+                android:drawablePadding="12dp"
+                android:drawableRight="@drawable/ic_gray_next"
+                android:gravity="center_vertical|right"
+                android:paddingLeft="16dp"
+                android:paddingRight="19dp"
+                android:text=""
+                android:textColor="@color/text_color_somber"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <include layout="@layout/base_view_line_marginleft"></include>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tv_room_no2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="19dp"
+                android:text="@string/room_number"
+                android:textColor="@color/text_color_somber"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_room_no"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@id/tv_room_no2"
+                android:drawablePadding="12dp"
+                android:drawableRight="@drawable/ic_gray_next"
+                android:gravity="center_vertical|right"
+                android:paddingLeft="16dp"
+                android:paddingRight="19dp"
+                android:text=""
+                android:textColor="@color/text_color_somber"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <include layout="@layout/base_view_line"></include>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <include layout="@layout/base_view_line"></include>
+
+            <TextView
+                android:id="@+id/tv_submit_addarea"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="13dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/login_bg_yellow"
+                android:gravity="center"
+                android:text="@string/commit"
+                android:textColor="@color/text_color_somber"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bggray"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_text_title" />
+
+    <include layout="@layout/base_view_line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/main_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bggray"
+                android:paddingBottom="12dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="12dp"
+                android:text="@string/personal_information" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/main_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="15dp"
+                    android:text="@string/name" />
+
+                <EditText
+                    style="@style/main_hint_text"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:hint="@string/input_real_name"
+                    android:padding="15dp" />
+            </RelativeLayout>
+
+            <include layout="@layout/base_view_line_marginleft"></include>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/main_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="15dp"
+                    android:text="@string/phone" />
+
+                <EditText
+                    style="@style/main_hint_text"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:hint="@string/input_obligate_phone"
+                    android:padding="15dp" />
+            </RelativeLayout>
+
+            <include layout="@layout/base_view_line_marginleft"></include>
+
+            <TextView
+                style="@style/main_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableRight="@drawable/login_icon_del"
+                android:paddingBottom="15dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="15dp"
+                android:paddingTop="15dp"
+                android:text="@string/identity" />
+
+
+            <TextView
+                style="@style/main_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bggray"
+                android:paddingBottom="12dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="12dp"
+                android:text="@string/house_information" />
+
+            <TextView
+                style="@style/main_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:drawableRight="@drawable/login_icon_del"
+                android:paddingBottom="15dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="15dp"
+                android:paddingTop="15dp"
+                android:text="@string/city" />
+
+            <include layout="@layout/base_view_line_marginleft"></include>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/main_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:padding="15dp"
+                    android:text="@string/village" />
+
+                <EditText
+                    style="@style/main_hint_text"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:hint="@string/input"
+                    android:padding="15dp" />
+            </RelativeLayout>
+
+            <include layout="@layout/base_view_line_marginleft"></include>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/main_title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="15dp"
+                    android:text="@string/floor" />
+
+                <EditText
+                    style="@style/main_hint_text"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:hint="@string/input"
+                    android:padding="15dp" />
+            </RelativeLayout>
+
+            <include layout="@layout/base_view_line_marginleft"></include>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/main_title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="15dp"
+                    android:text="@string/room_number" />
+
+                <EditText
+                    style="@style/main_hint_text"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:hint="@string/input"
+                    android:padding="15dp" />
+            </RelativeLayout>
+
+            <include layout="@layout/base_view_line_marginleft" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@color/bggray"
+                android:orientation="vertical">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/submit_corner"
+                    android:text="@string/commit" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

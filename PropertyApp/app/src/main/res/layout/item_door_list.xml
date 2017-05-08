@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_list_door_name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:background="@color/all_background"
+        android:drawableLeft="@drawable/log_key"
+        android:drawablePadding="27dp"
+        android:drawableRight="@drawable/log_key_right"
+        android:gravity="center_vertical"
+        android:paddingLeft="19dp"
+        android:paddingRight="19dp"
+        android:text=""
+        android:textColor="@color/text_color_somber"
+        android:textSize="15sp" />
+ <!--   android:background="@drawable/key_door_select"-->
+</LinearLayout>

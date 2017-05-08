@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_search_cancel"
+            android:layout_width="48dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/small_text_color_gray"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_toLeftOf="@id/tv_search_cancel"
+            android:background="@drawable/grey_bg_search">
+
+            <RelativeLayout
+                android:id="@+id/clean_word"
+                android:layout_width="28dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/login_icon_del" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/tv_search_txt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/clean_word"
+                android:background="@null"
+                android:drawableLeft="@drawable/search_bar_icon_normal"
+                android:drawablePadding="5dp"
+                android:hint="@string/search"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textColor="@color/text_color_somber"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/base_view_line"></include>
+
+    <LinearLayout
+        android:id="@+id/lay_search_last"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <RelativeLayout
+                android:id="@+id/lay_search_last_delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/log_search_last_del" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="19dp"
+                android:drawableLeft="@drawable/log_search_small"
+                android:drawablePadding="6dp"
+                android:text="@string/recent_search"
+                android:textColor="@color/small_text_color_gray"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_search_last"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:horizontalSpacing="10dp"
+            android:numColumns="5"
+            android:scrollbars="none"
+            android:verticalSpacing="10dp">
+        </GridView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_search_hot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="19dp"
+                android:drawableLeft="@drawable/log_search_hot"
+                android:drawablePadding="6dp"
+                android:text="@string/popular_searches"
+                android:textColor="@color/small_text_color_gray"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_search_hot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:horizontalSpacing="10dp"
+            android:numColumns="5"
+            android:scrollbars="none"
+            android:verticalSpacing="10dp">
+        </GridView>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/search_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:layoutAnimation="@anim/navagation_gridview_anim"
+        android:listSelector="@android:color/transparent"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/lay_search_nothing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pic_nothing_search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:text="@string/no_results_found"
+            android:textColor="@color/small_text_color_gray"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

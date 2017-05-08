@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bggray"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_text_title"></include>
+
+    <include layout="@layout/base_view_line"></include>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <com.glory.bianyitong.view.ContainsEmojiEditText
+            android:id="@+id/et_feed_content"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="@string/input_feedback"
+            android:padding="12dp"
+            android:textSize="14sp"/>
+    </RelativeLayout>
+
+</LinearLayout>

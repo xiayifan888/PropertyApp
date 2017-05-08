@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bggray"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activity.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/main_bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+
+        <View
+            android:id="@+id/view_line_tab"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/linegray"></View>
+
+        <RadioGroup
+            android:id="@+id/tabs_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_line_tab"
+            android:orientation="horizontal">
+            <!--android:id="@+id/message_rb"-->
+            <RadioButton
+                android:id="@+id/rb_tab_home"
+                style="@style/main_tab"
+                android:checked="true"
+                android:drawablePadding="4dp"
+
+                android:text="@string/index"
+                android:textColor="@color/tv_color_tab" />
+            <!--android:drawableTop="@drawable/icon_home2"-->
+            <RadioButton
+                android:id="@+id/rb_tab_near"
+                style="@style/main_tab"
+                android:drawablePadding="4dp"
+
+                android:text="@string/neighbour"
+                android:textColor="@color/tv_color_tab" />
+            <!-- android:drawableTop="@drawable/icon_neighour"-->
+            <RadioButton
+                android:id="@+id/rb_tab_open"
+                style="@style/main_tab"
+                android:checked="false"
+                android:clickable="false"
+                android:text="@string/open_the_door"
+                android:textColor="@color/tv_color_tab" />
+
+            <RadioButton
+                android:id="@+id/rb_tab_fresh"
+                style="@style/main_tab"
+                android:drawablePadding="4dp"
+
+                android:text="@string/fresh_supermarket"
+                android:textColor="@color/tv_color_tab" />
+            <!--android:drawableTop="@drawable/icon_fresh"-->
+            <RadioButton
+                android:id="@+id/rb_tab_my"
+                style="@style/main_tab"
+                android:drawablePadding="4dp"
+
+                android:text="@string/my"
+                android:textColor="@color/tv_color_tab" />
+            <!--android:drawableTop="@drawable/icon_my"-->
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/main_bottom_rl"
+        android:background="@color/bg_blue">
+
+        <LinearLayout
+            android:id="@+id/tab_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:orientation="horizontal" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_open_the_door"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
+        android:src="@drawable/icon_open_the_door" />
+    <!--取件-->
+    <ImageView
+        android:id="@+id/iv_pickup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/icon_open_the_door"/>
+
+</RelativeLayout>

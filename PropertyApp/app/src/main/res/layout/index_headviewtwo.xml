@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingTop="8dp">
+
+        <RelativeLayout
+            android:id="@+id/lay_home_notice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_community"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:drawablePadding="8dp"
+                android:drawableTop="@drawable/icon_community"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="@string/community_announcement"
+                android:textColor="@color/tv_color_name"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_notice_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-17dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/tv_community"
+                android:background="@drawable/log_notice_text"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_convenience_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/icon_convenience_phone"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/convenience_phone"
+            android:textColor="@color/tv_color_name"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_suggest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/icon_suggest"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/suggest"
+            android:textColor="@color/tv_color_name"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_tenement_steward"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/icon_tenement_steward"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/tenement_steward"
+            android:textColor="@color/tv_color_name"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bggray"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="66dp"
+                android:layout_height="0.5dp"
+                android:background="@color/line" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="@string/everyday_recommend"
+                android:textColor="@color/text_color_black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="66dp"
+                android:layout_height="0.5dp"
+                android:background="@color/line" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

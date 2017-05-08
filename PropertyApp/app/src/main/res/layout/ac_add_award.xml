@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bggray"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_text_title" />
+
+    <include layout="@layout/base_view_line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="19dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/name"
+                    android:textColor="@color/text_color_somber"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/et_linkman_name"
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="61dp"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:hint="@string/input_on_commisson_name"
+                    android:textColor="@color/text_color_somber"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/base_view_line_marginleft"></include>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="19dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/add_cn"
+                    android:textColor="@color/text_color_somber"
+                    android:textSize="15sp" />
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+                    <RelativeLayout
+                        android:id="@+id/rl_linkman"
+                        android:layout_width="46dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/log_linkman" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/et_linkman_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@id/rl_linkman"
+                        android:background="@null"
+                        android:gravity="center_vertical|right"
+                        android:hint="@string/input_phone_number"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <include layout="@layout/base_view_line"></include>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/bggray"
+                android:gravity="center_vertical"
+                android:paddingLeft="19dp"
+                android:text="@string/on_commisson_identity"
+                android:textColor="@color/small_text_color_gray"
+                android:textSize="14sp" />
+
+            <include layout="@layout/base_view_line"></include>
+
+            <RadioGroup
+                android:id="@+id/radioGroup_identity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RadioButton
+                    android:id="@+id/radioButton_folk"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:button="@null"
+                    android:checked="true"
+                    android:drawableRight="@drawable/log_select_radio"
+                    android:paddingLeft="19dp"
+                    android:paddingRight="19dp"
+                    android:text="@string/family"
+                    android:textColor="@color/text_color_somber"
+                    android:textSize="15sp" />
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <RadioButton
+                    android:id="@+id/radioButton_tentant"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:button="@null"
+                    android:drawableRight="@color/white"
+                    android:paddingLeft="19dp"
+                    android:paddingRight="19dp"
+                    android:text="@string/tenant"
+                    android:textColor="@color/text_color_somber"
+                    android:textSize="15sp" />
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <RadioButton
+                    android:id="@+id/radioButton_temporary_tentant"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:button="@null"
+                    android:drawableRight="@color/white"
+                    android:paddingLeft="19dp"
+                    android:paddingRight="19dp"
+                    android:text="@string/temporary_guest"
+                    android:textColor="@color/text_color_somber"
+                    android:textSize="15sp" />
+
+                <include layout="@layout/base_view_line"></include>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/bggray"
+                android:gravity="center_vertical"
+                android:paddingLeft="19dp"
+                android:text="@string/be_granted_time_limit"
+                android:textColor="@color/small_text_color_gray"
+                android:textSize="14sp" />
+
+            <include layout="@layout/base_view_line"></include>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="19dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/limit"
+                    android:textColor="@color/text_color_somber"
+                    android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/check_limit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="19dp"
+                    android:background="@null"
+                    android:button="@drawable/checkbox_style_click" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <LinearLayout
+                    android:id="@+id/ll_time_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="19dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/starting_time"
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_time_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="29dp"
+                        android:drawableRight="@drawable/ic_gray_next"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="19dp"
+                        android:text=""
+                        android:textColor="@color/text_color_somber" />
+                </LinearLayout>
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <LinearLayout
+                    android:id="@+id/ll_time_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="19dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/end_Time"
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_time_end"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="29dp"
+                        android:drawableRight="@drawable/ic_gray_next"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="19dp"
+                        android:text=""
+                        android:textColor="@color/text_color_somber" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <include layout="@layout/base_view_line"></include>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

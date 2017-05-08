@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bggray"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white">
+        <RelativeLayout
+            android:id="@+id/left_return_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp">
+            <ImageView
+                android:id="@+id/iv_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/log_cancel" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/iv_title_text_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingRight="12dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/title_ac_text"
+            style="@style/main_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text_color_title"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/iv_title_text_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="12dp" />
+    </RelativeLayout>
+
+    <include layout="@layout/base_view_line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/ll_area_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/base_view_line" />
+</LinearLayout>

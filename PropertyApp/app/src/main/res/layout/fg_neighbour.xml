@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:tag="NeighbourFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/app_base_color">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/neighbour"
+            android:textColor="@color/text_color_title"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/iv_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="15dp"
+            android:src="@drawable/icon_camera" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/linegray"/>
+    <com.glory.bianyitong.view.NewPullToRefreshView
+        android:id="@+id/neighbour_pullToRefreshView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ac_ca_title_line"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listView_neighbour"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:layoutAnimation="@anim/navagation_gridview_anim"
+            android:listSelector="@android:color/transparent" />
+    </com.glory.bianyitong.view.NewPullToRefreshView>
+</LinearLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/ac_mes_title"
+        layout="@layout/base_text_title" />
+
+    <View
+        android:id="@+id/ac_mes_title_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/ac_mes_title"
+        android:background="@color/linegray" />
+
+    <!--<include layout="@layout/content_main" />-->
+    <!--<RelativeLayout
+        android:id="@+id/rl_bottom_mes"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/rl_bottom_line_mes"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/linegray" />
+
+        <TextView
+            android:id="@+id/tv_all_read_mes"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_bottom_line_mes"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:text="全部设为已读" />
+
+        <TextView
+            android:id="@+id/tv_del_mes"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/rl_bottom_line_mes"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="删除"
+            android:visibility="gone" />
+    </RelativeLayout>-->
+
+    <RelativeLayout
+        android:id="@+id/lay_no_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_nomessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pic_no_message" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_nomessage"
+            android:layout_marginTop="40dp"
+            android:text="@string/there_is_no_news_yet"
+            android:textColor="@color/small_text_color_gray"
+            android:textSize="15sp" />
+    </RelativeLayout>
+    <!--<com.honor.propertyapp.view.NewPullToRefreshView
+        android:id="@+id/message_list_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_bottom_mes"
+        android:layout_below="@id/ac_mes_title_line"
+        android:background="@color/white"
+        android:visibility="visible"
+        android:orientation="vertical">-->
+
+    <!--android:layout_above="@id/rl_bottom_mes"-->
+    <ListView
+        android:id="@+id/listView_mes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ac_mes_title_line"
+        android:background="@color/white"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:visibility="visible" />
+    <!--</com.honor.propertyapp.view.NewPullToRefreshView>-->
+
+</RelativeLayout>

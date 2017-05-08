@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bggray"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_text_title"></include>
+
+    <include layout="@layout/base_view_line"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/lay_goods_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bggray"
+                    android:orientation="vertical">
+                </LinearLayout>
+                <!--<com.honor.propertyapp.widght.convenientbanner.ConvenientBanner
+                    android:id="@+id/pics_goods_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    app:canLoop="true" />-->
+
+                <TextView
+                    android:id="@+id/tv_goods_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="12dp"
+                    android:text=""
+                    android:textColor="@color/text_color_somber"
+                    android:textSize="15sp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_goods_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:text=""
+                        android:textColor="@color/price_red_color"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_quick_deliver_goods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/goods_tag_corner"
+                        android:padding="2dp"
+                        android:text=""
+                        android:textColor="@color/module_green_color"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:background="@color/bg_goods_txt"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="9dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_yellow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/goods_details" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="19dp"
+                        android:text="@string/net_weight"
+                        android:textColor="@color/small_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_goods_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="19dp"
+                        android:text="@string/packing"
+                        android:textColor="@color/small_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/goods_packaging"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="19dp"
+                        android:text="@string/brand"
+                        android:textColor="@color/small_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_goods_brand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="19dp"
+                        android:text="@string/origin"
+                        android:textColor="@color/small_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_producing_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="19dp"
+                        android:text="@string/factory_contact_information"
+                        android:textColor="@color/small_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_vender_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="19dp"
+                        android:text="@string/shelf_life"
+                        android:textColor="@color/small_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_expiration_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="14sp" />
+                </LinearLayout>
+                <include layout="@layout/base_view_line_marginleft"></include>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="165dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="19dp"
+                        android:text="@string/nutritional_value"
+                        android:textColor="@color/small_text_color_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_nutritiveValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="19dp"
+                        android:paddingRight="19dp"
+                        android:text=""
+                        android:textColor="@color/text_color_somber"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <!--<LinearLayout
+                android:id="@+id/lay_goodsImage_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />-->
+            <ProgressBar
+                android:id="@+id/my_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/progress_color_horizontal"
+                android:secondaryProgress="0" />
+
+            <WebView
+                android:id="@+id/webview_ervery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"></WebView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

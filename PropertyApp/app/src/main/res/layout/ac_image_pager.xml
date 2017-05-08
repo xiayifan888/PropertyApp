@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tv_color_tab"
+    android:fitsSystemWindows="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.glory.bianyitong.view.ViewPagerFixed
+        android:id="@+id/viewpager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="45dp"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:id="@+id/viewGroup_lay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewpager2"
+        android:layout_marginTop="-25dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"></LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/left_return_btn"
+        android:layout_width="45dip"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dip"
+        android:background="@null"
+        android:paddingBottom="10dip"
+        android:paddingLeft="20dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip">
+
+        <TextView
+            android:layout_width="12dip"
+            android:layout_height="20dip"
+            android:background="@drawable/return_back_pic"
+            android:gravity="center" />
+    </RelativeLayout>
+
+</RelativeLayout>

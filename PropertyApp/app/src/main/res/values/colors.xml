@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- 红色主色调 -->
+    <color name="app_base_color">#ffffff</color>
+    <color name="line_color">#5A9DE4</color>
+    <!-- 红色 -->
+    <color name="red">#c50000</color>
+
+    <!--金色-->
+    <color name="golden">#ffc526</color>
+    <!--橙色-->
+    <color name="orange">#f8934b</color>
+
+
+    <color name="transparent">#00000000</color>
+
+    <!--文字重要颜色-->
+    <!--深黑-->
+    <color name="aterrimus">#333333</color>
+    <!--浅黑-->
+    <color name="tv_color_name">#4A4A4A</color>
+    <!-- 灰色 去认证 -->
+    <color name="tv_color_go">#848285</color>
+    <!-- 灰色 首页 近邻 开门 -->
+    <color name="tv_color_tab">#2B2B2B</color>
+
+
+    <!--浅黑-->
+    <color name="somber">#999999</color>
+    <!--浅灰（分割线）-->
+    <color name="linegray">#EBEBEB</color>
+    <!--浅灰(背景)-->
+    <color name="bggray">#F2F2F2</color>
+    <color name="textcolor">#E0E0E0</color>
+
+    <!-- 白色 -->
+    <color name="white">#ffffff</color>
+    <!-- 线-->
+    <color name="line">#404040</color>
+    <color name="linewhite">#f5f5f5</color>
+    <!-- 深灰 -->
+    <color name="text_color">#222222</color>
+    <!--灰色-->
+    <color name="gray">#cccccc</color>
+    <!--黑色-->
+    <color name="black">#000000</color>
+    <color name="all_background">#F5F5F5</color>
+    <!--淡蓝色-->
+    <color name="light_blue">#5894DA</color>
+    <color name="bg_blue">#7AADEE</color>
+    <!--暗透明-->
+    <color name="dark_transparent">#80000000</color>
+
+    <!--tab-->
+    <color name="line_tab">#3C3C3C</color>
+
+    <!--近邻-->
+    <!-- 灰色 小字 -->
+    <color name="small_text_color_gray">#787679</color>
+    <color name="text_color_somber">#2f2f2f</color>
+
+    <!--首页-->
+    <!-- 黑色 每日推荐 -->
+    <color name="text_color_black">#0b0b0b</color>
+    <!-- 黑色 阳光花园 -->
+    <color name="text_color_title">#1f1f1f</color>
+    <!--照片-->
+    <color name="photo_background_color">#FF424242</color>
+    <color name="album_tip_background_color">#66000000</color>
+    <color name="album_text_background_color">#FFFFFFFF</color>
+    <color name="grid_background_color">#212121</color>
+    <!--生鲜-->
+    <!--精选-->
+    <!--价格颜色-->
+    <color name="price_red_color">#FA0404</color>
+    <!--模块名称颜色-->
+    <color name="module_green_color">#2F961E</color>
+
+    <!--请输入投诉详情 浅灰白 颜色-->
+    <color name="hint_gray_color">#BCBCBC</color>
+    <!--提交 黄色 颜色-->
+    <color name="submit_yellow_color">#FCDB12</color>
+        <!--橙色-->
+    <color name="color_orange">#FF5722</color>
+    <!--蓝色 电话-->
+    <color name="color_blue_phone">#007AFF</color>
+    <!--灰色 公告时间-->
+    <color name="color_gray_time">#989599</color>
+    <!--红色 删除-->
+    <color name="color_red_del">#FF1E00</color>
+    <!--灰白 回复评论背景-->
+    <color name="bg_comment_to_comment">#E9E9E9</color>
+    <!--灰白 产品详情背景-->
+    <color name="bg_goods_txt">#F8F8F8</color>
+    <!--灰 登录的线-->
+    <color name="line_login">#868686</color>
+
+    <!--灰 登录 倒计时背景-->
+    <color name="bg_login_time">#DDDDDD</color>
+    <!--状态栏 淡黄色-->
+    <color name="status_bar_color">#f7f1e0</color>
+
+    <!-- 字体颜色（灰色）-->
+    <color name="font_color">#ff777476</color>
+
+    <!-- 标题背景颜色（淡蓝色）-->
+    <color name="title_background_color4">#ff66D5DE</color>
+</resources>
