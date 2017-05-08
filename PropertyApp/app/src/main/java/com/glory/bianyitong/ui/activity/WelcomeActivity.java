@@ -58,7 +58,7 @@ public class WelcomeActivity extends BaseActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager1);
         initsdk();
 
-        versioncode = SharePreToolsKits.fetchVersionString(WelcomeActivity.this, "versioncode");
+        versioncode = SharePreToolsKits.fetchVersionString(WelcomeActivity.this, "versioncode");//版本号
         if (versioncode == null) {
             versioncode = "";
         }
