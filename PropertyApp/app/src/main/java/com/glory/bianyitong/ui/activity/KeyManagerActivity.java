@@ -95,7 +95,6 @@ public class KeyManagerActivity extends BaseActivity {
 //            Toast.makeText(KeyManagerActivity.this, "现在的第" + position + "条被删除。", Toast.LENGTH_SHORT).show();
             Toast.makeText(KeyManagerActivity.this, getString(R.string.now_the_first) + position + getString(R.string.the_article_is_deleted), Toast.LENGTH_SHORT).show();
         }
-
     };
     /**
      * Item的滑动状态发生变化监听。

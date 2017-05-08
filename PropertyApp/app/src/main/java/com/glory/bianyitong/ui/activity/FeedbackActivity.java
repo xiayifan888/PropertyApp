@@ -81,58 +81,6 @@ public class FeedbackActivity extends BaseActivity {
                 "\"pagerownum\": \"\",\"controllerName\": \"Feedback\",\"actionName\": \"ADD\"}";
         Log.i("resultString", "json------------" + json);
         String url = HttpURL.HTTP_LOGIN;
-//        OkGo.post(HttpURL.HTTP_LOGIN) //编辑
-//                .tag(this)//
-////                .headers("", "")//
-//                .params("request", json)
-//                .execute(new StringCallback() {
-//                    @Override
-//                    public void onSuccess(String s, Call call, Response response) {
-//                        Log.i("resultString", "------------");
-//                        Log.i("resultString", s);
-//                        Log.i("resultString", "------------");
-//                        HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
-//                        });
-//                        if (hashMap2 != null && hashMap2.get("statuscode") != null &&
-//                                Double.valueOf(hashMap2.get("statuscode").toString()).intValue() == 1) {
-//
-//                            ToastUtils.showToast(FeedbackActivity.this, getString(R.string.feedback_is_successful));//反馈成功
-//                            FeedbackActivity.this.finish();
-//                        } else {
-//                            ToastUtils.showToast(FeedbackActivity.this, getString(R.string.feedback_failed));//反馈失败
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Call call, Response response, Exception e) {
-//                        super.onError(call, response, e);
-//                        Log.i("resultString", "请求错误------");
-//                        ServiceDialog.showRequestFailed();
-////                        ToastUtils.showToast(FeedbackActivity.this, "请求失败...");
-//                    }
-//
-//                    @Override
-//                    public void parseError(Call call, Exception e) {
-//                        super.parseError(call, e);
-//                        Log.i("resultString", "网络解析错误------");
-//                    }
-//
-//                    @Override
-//                    public void onBefore(BaseRequest request) {
-//                        super.onBefore(request);
-//                        progressDialog = ProgressDialog.show(FeedbackActivity.this, "", getString(R.string.commit), true);//提交
-//                        progressDialog.setCanceledOnTouchOutside(true);
-//                    }
-//
-//                    @Override
-//                    public void onAfter(@Nullable String s, @Nullable Exception e) {
-//                        super.onAfter(s, e);
-//                        if (progressDialog != null) {
-//                            progressDialog.dismiss();
-//                            progressDialog = null;
-//                        }
-//                    }
-//                });
         OkGoRequest.getRequest().setOnOkGoUtilListener(new OkGoRequest.OnOkGoUtilListener() {
             @Override
             public void onSuccess(String s) {

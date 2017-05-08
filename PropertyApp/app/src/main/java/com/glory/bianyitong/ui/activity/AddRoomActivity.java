@@ -285,8 +285,7 @@ public class AddRoomActivity extends BaseActivity {
                 Log.i("resultString", "------------");
                 Log.i("resultString", s);
                 Log.i("resultString", "------------");
-                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
-                });
+                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {});
                 if (hashMap2 != null && hashMap2.get("listCommunityUnit") != null) {
                     ArrayList<LinkedTreeMap<String, Object>> ad_list = (ArrayList<LinkedTreeMap<String, Object>>) hashMap2.get("listCommunityUnit");
 
@@ -307,7 +306,7 @@ public class AddRoomActivity extends BaseActivity {
             @Override
             public void onError() {}
             @Override
-            public void parseError() { }
+            public void parseError() {}
             @Override
             public void onBefore() {}
             @Override
@@ -378,8 +377,7 @@ public class AddRoomActivity extends BaseActivity {
                 Log.i("resultString", "------------");
                 Log.i("resultString", s);
                 Log.i("resultString", "------------");
-                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
-                });
+                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {});
                 if (hashMap2 != null && hashMap2.get("listCommunityRoom") != null) {
                     ArrayList<LinkedTreeMap<String, Object>> ad_list = (ArrayList<LinkedTreeMap<String, Object>>) hashMap2.get("listCommunityRoom");
                     if (ad_list != null && ad_list.size() != 0) {
@@ -485,8 +483,7 @@ public class AddRoomActivity extends BaseActivity {
                 Log.i("resultString", "------------");
                 Log.i("resultString", s);
                 Log.i("resultString", "------------");
-                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
-                });
+                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {});
                 if (hashMap2 != null && hashMap2.get("statuscode") != null &&
                         Double.valueOf(hashMap2.get("statuscode").toString()).intValue() == 1) {
                     ToastUtils.showToast(AddRoomActivity.this, getString(R.string.submitted_successfully));//提交成功
