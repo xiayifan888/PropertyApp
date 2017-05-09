@@ -24,7 +24,7 @@ public class HttpURL {
 //
 //    public static String HTTP_LOGIN3 = "http://ad.51maimai.com.cn/";
 
-    public static String HTTP_NEW_URL = "http://192.168.1.113:1756/ApiIndex/Query";
+    public static String HTTP_NEW_URL = "http://192.168.1.113:1756";
 
 
 }

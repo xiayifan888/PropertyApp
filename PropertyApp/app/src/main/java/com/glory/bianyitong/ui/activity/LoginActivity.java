@@ -13,6 +13,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.glory.bianyitong.bean.AdvertisingInfo;
+import com.glory.bianyitong.bean.GetSMSCheckInfo;
 import com.glory.bianyitong.bean.UserInfo;
 import com.glory.bianyitong.constants.Constant;
 import com.glory.bianyitong.http.HttpURL;
@@ -167,26 +169,42 @@ public class LoginActivity extends BaseActivity {
     //生成验证码
     private void createCode(final String phone) {
         String json = "{\"phoneNum\":\"" + phone + "\"}";
-        String url = HttpURL.HTTP_LOGIN_AREA + "/SMSCode/GetSMSCheck";
+//        String url = HttpURL.HTTP_LOGIN_AREA + "/SMSCode/GetSMSCheck";
+        String url = HttpURL.HTTP_NEW_URL + "/SMSCode/GetSMSCheck";
         OkGoRequest.getRequest().setOnOkGoUtilListener(new OkGoRequest.OnOkGoUtilListener() {
             @Override
             public void onSuccess(String s) {
                 Log.i("resultString", "------------");
                 Log.i("resultString", s);
                 Log.i("resultString", "------------");
-                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {});
-                if (hashMap2 != null && hashMap2.get("statuscode") != null) {
-                    if (Double.valueOf(hashMap2.get("statuscode").toString()).intValue() == 1) {
-//                                getCode(phone);
+                try {
+                    JSONObject jo = new JSONObject(s);
+                    GetSMSCheckInfo smsinfo = new Gson().fromJson(jo.toString(), GetSMSCheckInfo.class);
+                    if(smsinfo!=null && smsinfo.getStatusCode() == 1){
                         login_code.setFocusable(true);
                         login_code.setFocusableInTouchMode(true);
                         login_code.requestFocus();
-                    } else if (hashMap2.get("alertmessage") != null) {
-                        ToastUtils.showToast(LoginActivity.this, hashMap2.get("alertmessage").toString());
-                    } else {
+                    }else if(smsinfo!=null && smsinfo.getAlertMessage()!=null){
+                        ToastUtils.showToast(LoginActivity.this, smsinfo.getAlertMessage());
+                    }else {
                         ToastUtils.showToast(LoginActivity.this, getString(R.string.failed_to_generate_verification_code));//生成验证码失败
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+//                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {});
+//                if (hashMap2 != null && hashMap2.get("statusCode") != null) {
+//                    if (Double.valueOf(hashMap2.get("statusCode").toString()).intValue() == 1) {
+////                                getCode(phone);
+//                        login_code.setFocusable(true);
+//                        login_code.setFocusableInTouchMode(true);
+//                        login_code.requestFocus();
+//                    } else if (hashMap2.get("alertMessage") != null) {
+//                        ToastUtils.showToast(LoginActivity.this, hashMap2.get("alertMessage").toString());
+//                    } else {
+//                        ToastUtils.showToast(LoginActivity.this, getString(R.string.failed_to_generate_verification_code));//生成验证码失败
+//                    }
+//                }
             }
             @Override
             public void onError() {}
@@ -195,7 +213,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onBefore() {}
             @Override
-            public void onAfter() { }
+            public void onAfter() {}
         }).getEntityData(url, json);
     }
 

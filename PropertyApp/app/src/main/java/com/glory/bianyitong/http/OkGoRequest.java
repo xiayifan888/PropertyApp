@@ -6,10 +6,14 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.glory.bianyitong.constants.Database;
+import com.glory.bianyitong.util.JsonHelper;
 import com.glory.bianyitong.util.ToastUtils;
+import com.google.gson.reflect.TypeToken;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.request.BaseRequest;
+
+import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -38,6 +42,12 @@ public class OkGoRequest {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
                         if (onOkGoUtilListener != null) {
+//                            HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {});
+//                            if (hashMap2 != null && hashMap2.get("statusCode") != null) {
+//                                if (Double.valueOf(hashMap2.get("statusCode").toString()).intValue() == 1) {
+//
+//                                }
+//                            }
                             onOkGoUtilListener.onSuccess(s);
                         }
                     }

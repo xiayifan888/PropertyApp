@@ -284,7 +284,8 @@ public class IndexFragment extends BaseFragment {
             }
 
             @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {}
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+            }
         });
     }
 
@@ -399,14 +400,14 @@ public class IndexFragment extends BaseFragment {
 
         int communityID = RequestUtil.getcommunityid();
 //        String url = HttpURL.HTTP_LOGIN_AREA + "/Advertising/StructureQuery";
-        String url = HttpURL.HTTP_NEW_URL;
+        String url = HttpURL.HTTP_NEW_URL + "/ApiIndex/Query";
 //        String json = "{\"advertising\": {\"communityID\":" + communityID + ",\"advertisingLocation\":\"1\"},\"userid\": \"" + userID + "\",\"groupid\": \"\",\"datetime\": \"\"," +
 //                "\"accesstoken\": \"\",\"version\": \"\",\"messagetoken\": \"\",\"DeviceType\": \"\",\"nowpagenum\": \"\"," +
 //                "\"pagerownum\": \"\",\"controllerName\": \"Advertising\",\"actionName\": \"StructureQuery\"}";
 
-        String query = "\"advertising\":{\"communityID\":0},\"systemMsg\":{\"communityID\":0}";
+        String query = "\"advertising\":{\"communityID\":" + communityID + "},\"systemMsg\":{\"communityID\":" + communityID + "}";
         String json = RequestUtil.getJson(context, query);
-        Log.i("resultString", "advertising json----"+json);
+        Log.i("resultString", "advertising json----" + json);
         OkGoRequest.getRequest().setOnOkGoUtilListener(new OkGoRequest.OnOkGoUtilListener() {
             @Override
             public void onSuccess(String s) {
@@ -439,11 +440,17 @@ public class IndexFragment extends BaseFragment {
             }
 
             @Override
-            public void onError() {}
+            public void onError() {
+            }
+
             @Override
-            public void parseError() {}
+            public void parseError() {
+            }
+
             @Override
-            public void onBefore() {}
+            public void onBefore() {
+            }
+
             @Override
             public void onAfter() {
                 if (progressDialog != null) {
