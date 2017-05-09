@@ -84,14 +84,17 @@ public class AddAreaCityActivity extends BaseActivity {
         public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
             // TODO Auto-generated method stub
         }
+
         @Override
         public void onProviderEnabled(String arg0) {
             // TODO Auto-generated method stub
         }
+
         @Override
         public void onProviderDisabled(String arg0) {
             // TODO Auto-generated method stub
         }
+
         @Override
         public void onLocationChanged(Location arg0) {
             // TODO Auto-generated method stub
@@ -236,14 +239,19 @@ public class AddAreaCityActivity extends BaseActivity {
             }
 
             @Override
-            public void onError() {}
+            public void onError() {
+            }
+
             @Override
-            public void parseError() {}
+            public void parseError() {
+            }
+
             @Override
             public void onBefore() {
                 progressDialog = ProgressDialog.show(AddAreaCityActivity.this, "", getResources().getString(R.string.load), true);//加载
                 progressDialog.setCanceledOnTouchOutside(true);
             }
+
             @Override
             public void onAfter() {
                 if (progressDialog != null) {
@@ -266,7 +274,8 @@ public class AddAreaCityActivity extends BaseActivity {
                 Log.i("resultString", "------------");
                 Log.i("resultString", s);
                 Log.i("resultString", "------------");
-                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {});
+                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
+                });
                 if (hashMap2 != null && hashMap2.get("listCommunity") != null) {
                     nearlist = (ArrayList<LinkedTreeMap<String, Object>>) hashMap2.get("listCommunity");
                     if (nearlist != null && nearlist.size() != 0) {
@@ -276,14 +285,22 @@ public class AddAreaCityActivity extends BaseActivity {
                     ToastUtils.showToast(AddAreaCityActivity.this, hashMap2.get("alertmessage").toString());
                 }
             }
+
             @Override
-            public void onError() {}
+            public void onError() {
+            }
+
             @Override
-            public void parseError() {}
+            public void parseError() {
+            }
+
             @Override
-            public void onBefore() {}
+            public void onBefore() {
+            }
+
             @Override
-            public void onAfter() {}
+            public void onAfter() {
+            }
         }).getEntityData(url, json);
     }
 
@@ -355,10 +372,12 @@ public class AddAreaCityActivity extends BaseActivity {
             public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
                 // TODO Auto-generated method stub
             }
+
             @Override
             public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
                 // TODO Auto-generated method stub
             }
+
             @Override
             public void afterTextChanged(Editable arg0) {
                 // TODO Auto-generated method stub
