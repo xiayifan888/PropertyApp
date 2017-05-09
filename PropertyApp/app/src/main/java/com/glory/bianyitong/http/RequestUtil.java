@@ -89,15 +89,16 @@ public class RequestUtil {
      * @return
      */
     public static String getJson(Context context, String query) {
-        String json = "{" + "\"userid\":" + "\"" + getuserid() + "\","
-                + "\"groupid\":" + "\"\","
-                + "\"accesstoken\":" + "\"\","
-                + "\"version\":" + "\"" + getVersion(context) + "\","
-                + "\"datetime\":" + "\"" + getCurrentTime() + "\","
-                + "\"messagetoken\":" + "\"\","
-                + "\"DeviceType\":" + "\"3\","
-                + query
-                + "}";
+        String json = "{\"timeStemp\": \"" + getCurrentTime() + "\"," +
+                "\"accessToken\": \"5488945897fdg89\"," +
+                "\"version\": \"" + getVersion(context) + "\"," +
+                "\"deviceType\": 3," +
+                "\"currentPageNumber\": 0," +
+                "\"pageRowNumber\": 0," +
+                "\"controllerName\": \"ApiIndex\"," +
+                "\"actionName\": \"Query\"," +
+                "\"userID\":\"" + getuserid() + "\"," +
+                "\"communityID\": 0," + query + "}";
         return json;
     }
 
@@ -129,22 +130,6 @@ public class RequestUtil {
     public static String getOpinion(Context context, String feedbackcontext) {
         String json = "\"feedback\":" + "{" + "\"feedbackcontext\":" + "\"" + feedbackcontext + "\","
                 + "\"feedbackdatetime\":" + "\"" + getCurrentTime() + "\"" + "}";
-        return getJson(context, json);
-    }
-
-    /**
-     * TODO 修改视频点赞
-     *
-     * @param context
-     * @param comment_id
-     * @param commentpraise
-     * @return
-     */
-    public static String editTVideoCommentBy(Context context, String comment_id, String commentpraise) {
-        String json = "\"tVideoComment\":" + "{"
-                + "\"comment_id\":" + "\"" + comment_id + "\""
-                + "},"
-                + "\"commentpraise\":" + "\"" + commentpraise + "\"";
         return getJson(context, json);
     }
 

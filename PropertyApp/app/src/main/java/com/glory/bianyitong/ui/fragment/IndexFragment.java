@@ -188,7 +188,6 @@ public class IndexFragment extends BaseFragment {
         } else {
             tvVillageName.setText(getResources().getString(R.string.click_to_Login)); //点击登录
         }
-
 //        if (images != null && images.length > 0) {
 //
 //        } else {
@@ -399,15 +398,15 @@ public class IndexFragment extends BaseFragment {
         imageList = new ArrayList<>();
 
         int communityID = RequestUtil.getcommunityid();
-        String url = HttpURL.HTTP_LOGIN_AREA + "/Advertising/StructureQuery";
-        String json = "{\"advertising\": {\"communityID\":" + communityID + ",\"advertisingLocation\":\"1\"},\"userid\": \"" + userID + "\",\"groupid\": \"\",\"datetime\": \"\"," +
-                "\"accesstoken\": \"\",\"version\": \"\",\"messagetoken\": \"\",\"DeviceType\": \"\",\"nowpagenum\": \"\"," +
-                "\"pagerownum\": \"\",\"controllerName\": \"Advertising\",\"actionName\": \"StructureQuery\"}";
-
-//        String json = "{\"advertising\": {\"advertisingLocation\":\"1\"},\"userid\": \"" + userID + "\",\"groupid\": \"\",\"datetime\": \"\"," +
+//        String url = HttpURL.HTTP_LOGIN_AREA + "/Advertising/StructureQuery";
+        String url = HttpURL.HTTP_NEW_URL;
+//        String json = "{\"advertising\": {\"communityID\":" + communityID + ",\"advertisingLocation\":\"1\"},\"userid\": \"" + userID + "\",\"groupid\": \"\",\"datetime\": \"\"," +
 //                "\"accesstoken\": \"\",\"version\": \"\",\"messagetoken\": \"\",\"DeviceType\": \"\",\"nowpagenum\": \"\"," +
 //                "\"pagerownum\": \"\",\"controllerName\": \"Advertising\",\"actionName\": \"StructureQuery\"}";
 
+        String query = "\"advertising\":{\"communityID\":0},\"systemMsg\":{\"communityID\":0}";
+        String json = RequestUtil.getJson(context, query);
+        Log.i("resultString", "advertising json----"+json);
         OkGoRequest.getRequest().setOnOkGoUtilListener(new OkGoRequest.OnOkGoUtilListener() {
             @Override
             public void onSuccess(String s) {
@@ -416,8 +415,7 @@ public class IndexFragment extends BaseFragment {
                 Log.i("resultString", "------------");
                 try {
                     JSONObject jo = new JSONObject(s);
-                    String statuscode = jo.getString("statuscode");
-                    String statusmessage = jo.getString("statusmessage");
+
                     AdvertisingInfo adinfo = new Gson().fromJson(jo.toString(), AdvertisingInfo.class);
 //                    Log.i("resultString", "adinfo.getListAdvertising()-------" + adinfo.getListAdvertising());
                     if (adinfo != null && adinfo.getListAdvertising() != null) {
@@ -438,26 +436,6 @@ public class IndexFragment extends BaseFragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-//                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
-//                });
-//                if (hashMap2 != null && hashMap2.get("listAdvertising") != null) {
-//                    ArrayList<LinkedTreeMap<String, Object>> ad_list = (ArrayList<LinkedTreeMap<String, Object>>) hashMap2.get("listAdvertising");
-//                    if (ad_list != null && ad_list.size() != 0) {
-//                        Log.i("resultString", "ad_list.size()----------"+ad_list.size());
-//                        String adstr = "";
-//                        for (int i = 0; i < ad_list.size(); i++) {
-//                            if (ad_list.get(i) != null && ad_list.get(i).get("advertisingPicture") != null) {
-//                                adstr = adstr + ad_list.get(i).get("advertisingPicture").toString() + ","; //广告图  ,号隔开
-//                            }
-//                        }
-//                        if (adstr.split(",") != null && adstr.split(",").length > 0) {
-//                            images = adstr.split(",");
-//                        } else {
-//                            images = new String[]{adstr};
-//                        }
-//                        getBanner(); //开始广告轮播
-//                    }
-//                }
             }
 
             @Override
@@ -465,7 +443,7 @@ public class IndexFragment extends BaseFragment {
             @Override
             public void parseError() {}
             @Override
-            public void onBefore() { }
+            public void onBefore() {}
             @Override
             public void onAfter() {
                 if (progressDialog != null) {
@@ -475,6 +453,7 @@ public class IndexFragment extends BaseFragment {
             }
         }).getEntityData(url, json);
     }
+
 
     private void getNews(int page, final boolean isrefresh) {
         int communityID = RequestUtil.getcommunityid();
