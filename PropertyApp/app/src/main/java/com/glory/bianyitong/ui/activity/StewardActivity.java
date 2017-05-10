@@ -14,19 +14,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.glory.bianyitong.bean.AdvertisingInfo;
-import com.glory.bianyitong.bean.HousekeeperInfo;
+import com.glory.bianyitong.bean.listHousekeeperInfo;
 import com.glory.bianyitong.constants.Database;
 import com.glory.bianyitong.http.RequestUtil;
 import com.glory.bianyitong.ui.dialog.ServiceDialog;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.glory.bianyitong.R;
 import com.glory.bianyitong.base.BaseActivity;
 import com.glory.bianyitong.http.HttpURL;
 import com.glory.bianyitong.ui.dialog.CallPhoneDialog;
-import com.glory.bianyitong.util.JsonHelper;
 import com.glory.bianyitong.util.ToastUtils;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
@@ -36,7 +33,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -61,7 +57,7 @@ public class StewardActivity extends BaseActivity {
     @BindView(R.id.steward_pic) //管家头像
             ImageView steward_pic;
     ArrayList<LinkedTreeMap<String, Object>> housekeeper_list;//物业管家
-    HousekeeperInfo.ListHousekeeperBean housekeeper;
+    listHousekeeperInfo.ListHousekeeperBean housekeeper;
     private String phone_str = "";//要拨打的电话
 
     @Override
@@ -132,12 +128,18 @@ public class StewardActivity extends BaseActivity {
 //                "\"buildingID\":" + buildingID + "},\"userid\": \"" + userID + "\",\"groupid\": \"\",\"datetime\": \"\"," +
 //                "\"accesstoken\": \"\",\"version\": \"\",\"messagetoken\": \"\",\"DeviceType\": \"\",\"nowpagenum\": \"\"," +
 //                "\"pagerownum\": \"\",\"controllerName\": \"Housekeeper\",\"actionName\": \"StructureQuery\"}";
-        String json = "{\"housekeeper\": {\"communityID\":" + communityID + ",\"unitID\":" + unitID + "," +
-                "\"buildingID\":" + buildingID + "},\"userid\": \"" + userID + "\",\"groupid\": \"\",\"datetime\": \"\"," +
-                "\"accesstoken\": \"\",\"version\": \"\",\"messagetoken\": \"\",\"DeviceType\": \"\",\"nowpagenum\": \"\"," +
-                "\"pagerownum\": \"\",\"controllerName\": \"Housekeeper\",\"actionName\": \"StructureQuery\"}";
+
+//        String json = "{\"housekeeper\": {\"communityID\":" + communityID + ",\"unitID\":" + unitID + "," +
+//                "\"buildingID\":" + buildingID + "},\"userid\": \"" + userID + "\",\"groupid\": \"\",\"datetime\": \"\"," +
+//                "\"accesstoken\": \"\",\"version\": \"\",\"messagetoken\": \"\",\"DeviceType\": \"\",\"nowpagenum\": \"\"," +
+//                "\"pagerownum\": \"\",\"controllerName\": \"Housekeeper\",\"actionName\": \"StructureQuery\"}";
+//        String url = HttpURL.HTTP_LOGIN;
+
+        String query = "\"housekeeper\":{\"HouseKepperID\":1,\"communityID\":" + communityID + "}";
+        String json = RequestUtil.getJson(StewardActivity.this, query);
+        String url = HttpURL.HTTP_NEW_URL + "/ApiHousekeeper/Query";
         Log.i("resultString", "json----------" + json);
-        OkGo.post(HttpURL.HTTP_LOGIN)
+        OkGo.post(url)
                 .tag(this)//
 //                .headers("", "")//
                 .params("request", json)
@@ -151,10 +153,10 @@ public class StewardActivity extends BaseActivity {
                             JSONObject jo = new JSONObject(s);
 //                            String statuscode = jo.getString("statuscode");
 //                            String statusmessage = jo.getString("statusmessage");
-                            HousekeeperInfo hinfo = new Gson().fromJson(jo.toString(), HousekeeperInfo.class);
+                            listHousekeeperInfo hinfo = new Gson().fromJson(jo.toString(), listHousekeeperInfo.class);
 //                            Log.i("resultString", "adinfo.getListHousekeeper()-------" + hinfo.getListHousekeeper());
                             if (hinfo != null && hinfo.getListHousekeeper() != null) {
-                                List<HousekeeperInfo.ListHousekeeperBean> hlist = hinfo.getListHousekeeper();
+                                List<listHousekeeperInfo.ListHousekeeperBean> hlist = hinfo.getListHousekeeper();
                                 if (hlist.get(0) != null) {
                                     housekeeper = hlist.get(0);
                                     if (housekeeper != null && housekeeper.getHouseKeeperName() != null) {
@@ -167,16 +169,16 @@ public class StewardActivity extends BaseActivity {
                                     String communityName = "";
                                     String unitName = "";
                                     String buildingName = "";
-                                    if (housekeeper != null && housekeeper.getCommunityName() != null) {
-                                        communityName = housekeeper.getCommunityName(); //小区名称
-                                    }
-                                    if (housekeeper != null && housekeeper.getUnitName() != null) {
-                                        unitName = housekeeper.getUnitName(); //单元名称
-                                    }
-                                    if (housekeeper != null && housekeeper.getBuildingName() != null) {
-                                        buildingName = housekeeper.getBuildingName(); //楼栋名称
-                                    }
-                                    steward_cert.setText(getResources().getString(R.string.certification)+":" + communityName + unitName + buildingName);
+//                                    if (housekeeper != null && housekeeper.getCommunityName() != null) {
+//                                        communityName = housekeeper.getCommunityName(); //小区名称
+//                                    }
+//                                    if (housekeeper != null && housekeeper.getUnitName() != null) {
+//                                        unitName = housekeeper.getUnitName(); //单元名称
+//                                    }
+//                                    if (housekeeper != null && housekeeper.getBuildingName() != null) {
+//                                        buildingName = housekeeper.getBuildingName(); //楼栋名称
+//                                    }
+                                    steward_cert.setText(getResources().getString(R.string.certification) + ":" + communityName + unitName + buildingName);
                                     if (housekeeper != null && housekeeper.getHouseKepperPhoto() != null) {
                                         ServiceDialog.setPicture(housekeeper.getHouseKepperPhoto(), steward_pic, null);//管家 头像
                                     }

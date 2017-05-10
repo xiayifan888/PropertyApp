@@ -13,7 +13,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.glory.bianyitong.bean.AdvertisingInfo;
 import com.glory.bianyitong.bean.GetSMSCheckInfo;
 import com.glory.bianyitong.bean.GetSMSCodeInfo;
 import com.glory.bianyitong.bean.LoginUserInfo;
@@ -28,12 +27,10 @@ import com.glory.bianyitong.util.DataUtils;
 import com.glory.bianyitong.util.SharePreToolsKits;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.glory.bianyitong.R;
 import com.glory.bianyitong.base.BaseActivity;
 import com.glory.bianyitong.constants.Database;
 import com.glory.bianyitong.util.ActivityUtils;
-import com.glory.bianyitong.util.JsonHelper;
 import com.glory.bianyitong.util.ToastUtils;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
@@ -43,7 +40,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Set;
 
 import butterknife.BindView;
@@ -57,6 +53,9 @@ import okhttp3.Response;
  * 登录
  */
 public class LoginActivity extends BaseActivity {
+    //没用的注释 方法去掉
+    // e.printStackTrace(); 去掉
+    //Log.i  改为  Log.d
     private static final int MSG_SET_ALIAS = 1001;
     private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
         @Override

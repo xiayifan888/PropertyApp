@@ -20,9 +20,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.glory.bianyitong.R;
-import com.glory.bianyitong.bean.AdvertisingInfo;
+import com.glory.bianyitong.bean.AdvertisingInfo2;
 import com.glory.bianyitong.bean.UserLockInfo;
-import com.glory.bianyitong.constants.Database;
 import com.glory.bianyitong.http.HttpURL;
 import com.glory.bianyitong.http.RequestUtil;
 import com.glory.bianyitong.ui.activity.KeyManagerActivity;
@@ -30,9 +29,7 @@ import com.glory.bianyitong.ui.activity.SwitchAreaActivity;
 import com.glory.bianyitong.util.JsonHelper;
 import com.glory.bianyitong.util.ToastUtils;
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-import com.litao.android.lib.entity.PhotoEntry;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.request.BaseRequest;
@@ -43,7 +40,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -455,10 +451,10 @@ public class OpenDoorPopuWindow extends PopupWindow implements View.OnClickListe
                             JSONObject jo = new JSONObject(s);
                             String statuscode = jo.getString("statuscode");
                             String statusmessage = jo.getString("statusmessage");
-                            AdvertisingInfo adinfo = new Gson().fromJson(jo.toString(), AdvertisingInfo.class);
+                            AdvertisingInfo2 adinfo = new Gson().fromJson(jo.toString(), AdvertisingInfo2.class);
 //                    Log.i("resultString", "adinfo.getListAdvertising()-------" + adinfo.getListAdvertising());
                             if (adinfo != null && adinfo.getListAdvertising() != null) {
-                                List<AdvertisingInfo.ListAdvertisingBean> ad_list = adinfo.getListAdvertising();
+                                List<AdvertisingInfo2.ListAdvertisingBean> ad_list = adinfo.getListAdvertising();
                                 if (ad_list != null && ad_list.get(0) != null && ad_list.get(0).getAdvertisingPicture() != null) {
                                     String data = ad_list.get(0).getAdvertisingPicture();
 //                                ServiceDialog.setPicture(ad_list.get(0).get("advertisingPicture").toString(), iv_open_ad, null);

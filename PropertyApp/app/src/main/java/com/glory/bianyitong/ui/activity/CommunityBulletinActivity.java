@@ -2,47 +2,34 @@ package com.glory.bianyitong.ui.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.glory.bianyitong.bean.CommunityBulletinInfo;
-import com.glory.bianyitong.bean.HousekeeperInfo;
+import com.glory.bianyitong.bean.listCommunityBulletinInfo;
 import com.glory.bianyitong.http.OkGoRequest;
 import com.glory.bianyitong.http.RequestUtil;
 import com.glory.bianyitong.ui.dialog.ServiceDialog;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.glory.bianyitong.R;
 import com.glory.bianyitong.base.BaseActivity;
 import com.glory.bianyitong.constants.Constant;
 import com.glory.bianyitong.constants.Database;
 import com.glory.bianyitong.http.HttpURL;
 import com.glory.bianyitong.ui.adapter.CommunityAnnouceAdapter;
-import com.glory.bianyitong.util.JsonHelper;
 import com.glory.bianyitong.util.SharePreToolsKits;
-import com.glory.bianyitong.util.ToastUtils;
-import com.glory.bianyitong.view.NewPullToRefreshView;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
-import com.lzy.okgo.request.BaseRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import butterknife.BindView;
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * Created by lucy on 2016/11/11.
@@ -199,7 +186,11 @@ public class CommunityBulletinActivity extends BaseActivity {
 //                        if (Database.list_communityBulletin.get(i) != null && Database.list_communityBulletin.get(i).get("bulletinID") != null) {
 //                            Database.readbulletinid = Database.readbulletinid + Database.list_communityBulletin.get(i).get("bulletinID").toString() + ",";
 //                        }
-                        if (Database.list_communityBulletin.get(i) != null && Database.list_communityBulletin.get(i).getBulletinID() != null) {
+
+//                        if (Database.list_communityBulletin.get(i) != null && Database.list_communityBulletin.get(i).getBulletinID() != null) {
+//                            Database.readbulletinid = Database.readbulletinid + Database.list_communityBulletin.get(i).getBulletinID() + ",";
+//                        }
+                        if (Database.list_communityBulletin.get(i) != null && Database.list_communityBulletin.get(i).getBulletinID() != 0) {
                             Database.readbulletinid = Database.readbulletinid + Database.list_communityBulletin.get(i).getBulletinID() + ",";
                         }
                     }
@@ -357,7 +348,7 @@ public class CommunityBulletinActivity extends BaseActivity {
 //                            JSONObject jo = new JSONObject(s);
 ////                            String statuscode = jo.getString("statuscode");
 ////                            String statusmessage = jo.getString("statusmessage");
-//                            CommunityBulletinInfo cbinfo = new Gson().fromJson(jo.toString(), CommunityBulletinInfo.class);
+//                            listCommunityBulletinInfo cbinfo = new Gson().fromJson(jo.toString(), listCommunityBulletinInfo.class);
 ////                            Log.i("resultString", "adinfo.getListHousekeeper()-------" + hinfo.getListHousekeeper());
 //                            if (cbinfo != null && cbinfo.getListCommunityBulletin() != null) {
 //                                Database.list_communityBulletin = cbinfo.getListCommunityBulletin();
@@ -454,7 +445,7 @@ public class CommunityBulletinActivity extends BaseActivity {
                     JSONObject jo = new JSONObject(s);
 //                            String statuscode = jo.getString("statuscode");
 //                            String statusmessage = jo.getString("statusmessage");
-                    CommunityBulletinInfo cbinfo = new Gson().fromJson(jo.toString(), CommunityBulletinInfo.class);
+                    listCommunityBulletinInfo cbinfo = new Gson().fromJson(jo.toString(), listCommunityBulletinInfo.class);
 //                            Log.i("resultString", "adinfo.getListHousekeeper()-------" + hinfo.getListHousekeeper());
                     if (cbinfo != null && cbinfo.getListCommunityBulletin() != null) {
                         Database.list_communityBulletin = cbinfo.getListCommunityBulletin();
@@ -481,7 +472,12 @@ public class CommunityBulletinActivity extends BaseActivity {
 //                                                        Database.readbulletinid = Database.readbulletinid + Database.list_communityBulletin.get(j).get("bulletinID").toString() + ",";
 //                                                    }
 //                                                }
-                                        if (Database.list_communityBulletin.get(j) != null && Database.list_communityBulletin.get(j).getBulletinID() != null) {
+//                                        if (Database.list_communityBulletin.get(j) != null && Database.list_communityBulletin.get(j).getBulletinID() != null) {
+//                                            if (array[i] != null && array[i].equals(Database.list_communityBulletin.get(j).getBulletinID())) {
+//                                                Database.readbulletinid = Database.readbulletinid + Database.list_communityBulletin.get(j).getBulletinID() + ",";
+//                                            }
+//                                        }
+                                        if (Database.list_communityBulletin.get(j) != null && Database.list_communityBulletin.get(j).getBulletinID() != 0) {
                                             if (array[i] != null && array[i].equals(Database.list_communityBulletin.get(j).getBulletinID())) {
                                                 Database.readbulletinid = Database.readbulletinid + Database.list_communityBulletin.get(j).getBulletinID() + ",";
                                             }

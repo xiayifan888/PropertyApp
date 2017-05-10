@@ -3,12 +3,10 @@ package com.glory.bianyitong.constants;
 import android.app.Activity;
 
 import com.glory.bianyitong.bean.CommnunityInfo;
-import com.glory.bianyitong.bean.CommunityBulletinInfo;
+import com.glory.bianyitong.bean.listCommunityBulletinInfo;
 import com.glory.bianyitong.bean.FreashInfo;
 import com.glory.bianyitong.bean.LoginUserInfo;
-import com.glory.bianyitong.bean.UserInfo;
 import com.glory.bianyitong.bean.YellowPageAllInfo;
-import com.glory.bianyitong.bean.YellowPageGroupInfo;
 import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.ArrayList;
@@ -44,7 +42,7 @@ public class Database {
     public static CommnunityInfo my_community = null;// 我的小区
 
 //    public static ArrayList<LinkedTreeMap<String, Object>> list_communityBulletin = null;// 社区公告
-    public static List<CommunityBulletinInfo.ListCommunityBulletinBean> list_communityBulletin = null;// 社区公告
+    public static List<listCommunityBulletinInfo.ListCommunityBulletinBean> list_communityBulletin = null;// 社区公告
 
 //    public static ArrayList<LinkedTreeMap<String, Object>> list_yellow = null;//黄页 电话列表数据
     public static List<YellowPageAllInfo> list_yellow = null;//黄页 电话列表数据

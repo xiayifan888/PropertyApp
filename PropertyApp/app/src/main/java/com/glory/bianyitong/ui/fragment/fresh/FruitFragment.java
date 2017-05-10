@@ -18,21 +18,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.glory.bianyitong.bean.FreashInfo;
-import com.glory.bianyitong.bean.HousekeeperInfo;
 import com.glory.bianyitong.http.RequestUtil;
-import com.glory.bianyitong.ui.dialog.ServiceDialog;
 import com.glory.bianyitong.util.ActivityUtils;
-import com.glory.bianyitong.view.MyGridView;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.glory.bianyitong.R;
 import com.glory.bianyitong.base.BaseFragment;
 import com.glory.bianyitong.constants.Database;
 import com.glory.bianyitong.http.HttpURL;
 import com.glory.bianyitong.ui.adapter.FruitListAdapter;
 import com.glory.bianyitong.ui.adapter.GridTypeAdapter;
-import com.glory.bianyitong.util.JsonHelper;
 import com.glory.bianyitong.util.ToastUtils;
 import com.glory.bianyitong.view.NewPullToRefreshView;
 import com.lzy.okgo.OkGo;
@@ -44,7 +39,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;

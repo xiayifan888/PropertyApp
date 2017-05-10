@@ -2,7 +2,6 @@ package com.glory.bianyitong.ui.activity;
 
 import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
@@ -15,22 +14,17 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.glory.bianyitong.bean.HousekeeperInfo;
 import com.glory.bianyitong.bean.YellowPageAllInfo;
 import com.glory.bianyitong.bean.YellowPageGroupInfo;
 import com.glory.bianyitong.bean.YellowPageInfo;
 import com.glory.bianyitong.constants.Database;
 import com.glory.bianyitong.http.RequestUtil;
-import com.glory.bianyitong.ui.dialog.ServiceDialog;
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.glory.bianyitong.R;
 import com.glory.bianyitong.base.BaseActivity;
 import com.glory.bianyitong.http.HttpURL;
 import com.glory.bianyitong.ui.adapter.ConveniencePhoneAdapter;
 import com.glory.bianyitong.ui.dialog.CallPhoneDialog;
-import com.glory.bianyitong.util.JsonHelper;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.request.BaseRequest;
@@ -39,7 +33,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;

@@ -10,17 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.glory.bianyitong.bean.AdvertisingInfo;
-import com.glory.bianyitong.bean.CommunityBulletinInfo;
 import com.glory.bianyitong.bean.ComplaintsTypeInfo;
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.glory.bianyitong.R;
 import com.glory.bianyitong.base.BaseActivity;
 import com.glory.bianyitong.constants.Database;
 import com.glory.bianyitong.http.HttpURL;
-import com.glory.bianyitong.util.JsonHelper;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.request.BaseRequest;
@@ -28,8 +23,6 @@ import com.lzy.okgo.request.BaseRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;

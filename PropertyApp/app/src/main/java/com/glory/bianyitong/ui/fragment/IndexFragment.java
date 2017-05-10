@@ -13,14 +13,12 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.glory.bianyitong.bean.AdvertisingInfo;
+import com.glory.bianyitong.bean.AdvertisingInfo2;
 import com.glory.bianyitong.bean.AuthAreaInfo;
-import com.glory.bianyitong.bean.CommunityBulletinInfo;
-import com.glory.bianyitong.bean.HousekeeperInfo;
+import com.glory.bianyitong.bean.listCommunityBulletinInfo;
 import com.glory.bianyitong.bean.MessageInfo;
 import com.glory.bianyitong.constants.Constant;
 import com.glory.bianyitong.http.OkGoRequest;
@@ -28,9 +26,6 @@ import com.glory.bianyitong.http.RequestUtil;
 import com.glory.bianyitong.ui.activity.AddAreaCityActivity;
 import com.glory.bianyitong.ui.activity.AuthAreaActivity;
 import com.glory.bianyitong.ui.activity.LoginActivity;
-import com.glory.bianyitong.ui.adapter.CommunityAnnouceAdapter;
-import com.glory.bianyitong.ui.adapter.MessageAdapter;
-import com.glory.bianyitong.ui.dialog.ServiceDialog;
 import com.glory.bianyitong.util.DataUtils;
 import com.glory.bianyitong.util.DateUtil;
 import com.glory.bianyitong.util.SharePreToolsKits;
@@ -49,7 +44,6 @@ import com.glory.bianyitong.ui.activity.StewardActivity;
 import com.glory.bianyitong.ui.activity.SuggestActivity;
 import com.glory.bianyitong.ui.activity.SwitchAreaActivity;
 import com.glory.bianyitong.ui.adapter.EveryDayRecommendAdapter;
-import com.glory.bianyitong.ui.adapter.VillageNameAdapter;
 import com.glory.bianyitong.util.JsonHelper;
 import com.glory.bianyitong.util.NetworkImageHolderView;
 import com.glory.bianyitong.util.ToastUtils;
@@ -340,6 +334,7 @@ public class IndexFragment extends BaseFragment {
                             requestlist("phone");
                         }
                     } else {//没有小区
+                        ToastUtils.showToast(context, getResources().getString(R.string.no_district)); //暂无小区
                         intent = new Intent(context, AuthAreaActivity.class); //
                         intent.putExtra("from", "");//index
                         startActivity(intent);
@@ -358,6 +353,7 @@ public class IndexFragment extends BaseFragment {
                             requestlist("suggest");
                         }
                     } else {//没有小区
+                        ToastUtils.showToast(context, getResources().getString(R.string.no_district)); //暂无小区
                         intent = new Intent(context, AuthAreaActivity.class); //
                         intent.putExtra("from", "");
                         startActivity(intent);
@@ -376,6 +372,7 @@ public class IndexFragment extends BaseFragment {
                             requestlist("steward");
                         }
                     } else {//没有小区
+                        ToastUtils.showToast(context, getResources().getString(R.string.no_district)); //暂无小区
                         intent = new Intent(context, AuthAreaActivity.class); //
                         intent.putExtra("from", ""); //index
                         startActivity(intent);
@@ -417,10 +414,10 @@ public class IndexFragment extends BaseFragment {
                 try {
                     JSONObject jo = new JSONObject(s);
 
-                    AdvertisingInfo adinfo = new Gson().fromJson(jo.toString(), AdvertisingInfo.class);
+                    AdvertisingInfo2 adinfo = new Gson().fromJson(jo.toString(), AdvertisingInfo2.class);
 //                    Log.i("resultString", "adinfo.getListAdvertising()-------" + adinfo.getListAdvertising());
                     if (adinfo != null && adinfo.getListAdvertising() != null) {
-                        List<AdvertisingInfo.ListAdvertisingBean> adlist = adinfo.getListAdvertising();
+                        List<AdvertisingInfo2.ListAdvertisingBean> adlist = adinfo.getListAdvertising();
                         String adstr = "";
                         for (int i = 0; i < adlist.size(); i++) {
                             if (adlist.get(i) != null && adlist.get(i).getAdvertisingPicture() != null) {
@@ -742,7 +739,7 @@ public class IndexFragment extends BaseFragment {
                             JSONObject jo = new JSONObject(s);
 //                            String statuscode = jo.getString("statuscode");
 //                            String statusmessage = jo.getString("statusmessage");
-                            CommunityBulletinInfo cbinfo = new Gson().fromJson(jo.toString(), CommunityBulletinInfo.class);
+                            listCommunityBulletinInfo cbinfo = new Gson().fromJson(jo.toString(), listCommunityBulletinInfo.class);
 //                            Log.i("resultString", "adinfo.getListHousekeeper()-------" + hinfo.getListHousekeeper());
                             if (cbinfo != null && cbinfo.getListCommunityBulletin() != null) {
                                 Database.list_communityBulletin = cbinfo.getListCommunityBulletin();
@@ -755,7 +752,8 @@ public class IndexFragment extends BaseFragment {
                                         Database.readbulletinid = "";
                                         for (int i = 0; i < array.length; i++) {
                                             for (int j = 0; j < Database.list_communityBulletin.size(); j++) {
-                                                if (Database.list_communityBulletin.get(j) != null && Database.list_communityBulletin.get(j).getBulletinID() != null) {
+                                                //Database.list_communityBulletin.get(j) != null && Database.list_communityBulletin.get(j).getBulletinID() != null
+                                                if (Database.list_communityBulletin.get(j) != null && Database.list_communityBulletin.get(j).getBulletinID() != 0) {
                                                     if (array[i] != null && array[i].equals(Database.list_communityBulletin.get(j).getBulletinID())) {
                                                         Database.readbulletinid = Database.readbulletinid + Database.list_communityBulletin.get(j).getBulletinID() + ",";
                                                         size++;

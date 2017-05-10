@@ -12,15 +12,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.glory.bianyitong.bean.CommunityBulletinInfo;
+import com.glory.bianyitong.bean.listCommunityBulletinInfo;
 import com.glory.bianyitong.constants.Constant;
 import com.glory.bianyitong.util.SharePreToolsKits;
-import com.google.gson.internal.LinkedTreeMap;
 import com.glory.bianyitong.R;
 import com.glory.bianyitong.constants.Database;
 import com.glory.bianyitong.ui.activity.BulletinDetailsActivity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,11 +31,11 @@ public class CommunityAnnouceAdapter extends BaseAdapter {
     public static HashMap<Integer, Boolean> checkList;//这是头部那个chexkbox
     private Context context;
 //    private ArrayList<LinkedTreeMap<String, Object>> qiList;
-    private List<CommunityBulletinInfo.ListCommunityBulletinBean> qiList;
+    private List<listCommunityBulletinInfo.ListCommunityBulletinBean> qiList;
     //    public static HashMap<Integer, Boolean> checkimglist;//这是显示那个读不读的 我用一个button表示
     private boolean isDoMore; //是否进行编辑默认为false
 
-    public CommunityAnnouceAdapter(Context context, List<CommunityBulletinInfo.ListCommunityBulletinBean> qiList, HashMap<Integer, Boolean> checkList,
+    public CommunityAnnouceAdapter(Context context, List<listCommunityBulletinInfo.ListCommunityBulletinBean> qiList, HashMap<Integer, Boolean> checkList,
                                    boolean isDoMore) { //ArrayList<LinkedTreeMap<String, Object>>
 //        public CommunityAnnouceAdapter(Context context, ArrayList<LinkedTreeMap<String, Object>> qiList, HashMap<Integer, Boolean> checkList,
 //                HashMap<Integer, Boolean> checkimglist, boolean isDoMore) {
@@ -63,7 +61,7 @@ public class CommunityAnnouceAdapter extends BaseAdapter {
 
     }
 
-    public void updateList(List<CommunityBulletinInfo.ListCommunityBulletinBean> qiList) {//ArrayList<LinkedTreeMap<String, Object>>
+    public void updateList(List<listCommunityBulletinInfo.ListCommunityBulletinBean> qiList) {//ArrayList<LinkedTreeMap<String, Object>>
         this.qiList = qiList;
 
     }
@@ -182,8 +180,11 @@ public class CommunityAnnouceAdapter extends BaseAdapter {
 //            if (qiList.get(position).get("bulletinID") != null) {
 //                bulletinID = qiList.get(position).get("bulletinID").toString();
 //            }
-            if (qiList.get(position).getBulletinID() != null) {
-                bulletinID = qiList.get(position).getBulletinID();
+//            if (qiList.get(position).getBulletinID() != null) {
+//                bulletinID = qiList.get(position).getBulletinID();
+//            }
+            if (qiList.get(position).getBulletinID() != 0) {
+                bulletinID = qiList.get(position).getBulletinID()+"";
             }
         } else {
             holder.item_ca_msg_tv_title.setText("");
@@ -234,8 +235,8 @@ public class CommunityAnnouceAdapter extends BaseAdapter {
 //                            Database.notreadbulletinSize --;
 //                        }
 //                    }
-                    if (qiList.get(position).getBulletinID() != null) {
-                        String bulletinId = qiList.get(position).getBulletinID();
+                    if (qiList.get(position).getBulletinID() != 0) {//qiList.get(position).getBulletinID() != null
+                        String bulletinId = qiList.get(position).getBulletinID()+"";
                         Log.i("resultString", "bulletinId--------" + bulletinId);
                         boolean isread = false; //默认未读
                         String[] array = Database.readbulletinid.split(",");
@@ -254,41 +255,26 @@ public class CommunityAnnouceAdapter extends BaseAdapter {
                         }
                     }
                     Intent intent = new Intent(context, BulletinDetailsActivity.class);
-//                    if (qiList.get(position).get("bulletinContent") != null) {
-//                        intent.putExtra("bulletinContent", qiList.get(position).get("bulletinContent").toString());
-//                    }else {
-//                        intent.putExtra("bulletinContent", "");
-//                    }
+
                     if (qiList.get(position).getBulletinContent() != null) {
                         intent.putExtra("bulletinContent", qiList.get(position).getBulletinContent());
                     }else {
                         intent.putExtra("bulletinContent", "");
                     }
-//                    if (qiList.get(position).get("communityName") != null) {
-//                        intent.putExtra("communityName", qiList.get(position).get("communityName").toString());
+
+//                    if (qiList.get(position).getCommunityName() != null) {
+//                        intent.putExtra("communityName", qiList.get(position).getCommunityName());
 //                    } else {
 //                        intent.putExtra("communityName", "");
 //                    }
-                    if (qiList.get(position).getCommunityName() != null) {
-                        intent.putExtra("communityName", qiList.get(position).getCommunityName());
-                    } else {
-                        intent.putExtra("communityName", "");
-                    }
-//                    if (qiList.get(position).get("bulletinTittle") != null) {
-//                        intent.putExtra("bulletinTittle", qiList.get(position).get("bulletinTittle").toString());
-//                    } else {
-//                        intent.putExtra("bulletinTittle", "");
-//                    }
+
+
                     if (qiList.get(position).getBulletinTittle() != null) {
                         intent.putExtra("bulletinTittle", qiList.get(position).getBulletinTittle());
                     } else {
                         intent.putExtra("bulletinTittle", "");
                     }
-//                    if (qiList.get(position).get("bulletinDatetime") != null) {
-//                        intent.putExtra("bulletinDatetime", qiList.get(position).get("bulletinDatetime").toString().substring(0, 10));
-//                    } else {
-//                        intent.putExtra("bulletinDatetime", "");
-//                    }
+
                     if (qiList.get(position).getBulletinDatetime() != null) {
                         intent.putExtra("bulletinDatetime", qiList.get(position).getBulletinDatetime().substring(0, 10));
                     } else {

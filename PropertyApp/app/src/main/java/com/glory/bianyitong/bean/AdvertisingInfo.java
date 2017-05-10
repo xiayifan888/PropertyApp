@@ -1,16 +1,117 @@
 package com.glory.bianyitong.bean;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 /**
  * Created by lucy on 2017/1/10.
  */
-public class AdvertisingInfo extends RequestBaseInfo{
+public class AdvertisingInfo {
 
+    /**
+     * tableColumnPermission : []
+     * listAdvertising : [{"advertisingID":1,"advertisingType":"1","advertisingPicture":"https://www.pgagolf.cn:4432/images/Advertising/ad1.jpg","advertisingVideo":"","advertisingStartDate":"2016-11-20T00:00:00","advertisingEndDate":"2016-12-20T00:00:00","advertisingShowTime":1,"communityID":1,"advertisingLocation":1},{"advertisingID":2,"advertisingType":"1","advertisingPicture":"https://www.pgagolf.cn:4432/images/Advertising/ad2.jpg","advertisingVideo":"","advertisingStartDate":"2016-11-20T00:00:00","advertisingEndDate":"2016-12-20T00:00:00","advertisingShowTime":1,"communityID":1,"advertisingLocation":1},{"advertisingID":3,"advertisingType":"1","advertisingPicture":"https://www.pgagolf.cn:4432/images/Advertising/ad3.jpg","advertisingVideo":"","advertisingStartDate":"2016-11-20T00:00:00","advertisingEndDate":"2016-12-20T00:00:00","advertisingShowTime":1,"communityID":1,"advertisingLocation":1},{"advertisingID":12,"advertisingType":"1","advertisingPicture":"https://www.pgagolf.cn:4432/images/Advertising/ad1.jpg","advertisingVideo":"","advertisingStartDate":"2016-11-20T00:00:00","advertisingEndDate":"2016-12-20T00:00:00","advertisingShowTime":1,"communityID":0,"advertisingLocation":1},{"advertisingID":13,"advertisingType":"1","advertisingPicture":"https://www.pgagolf.cn:4432/images/Advertising/ad2.jpg","advertisingVideo":"","advertisingStartDate":"2016-11-20T00:00:00","advertisingEndDate":"2016-12-20T00:00:00","advertisingShowTime":1,"communityID":0,"advertisingLocation":1},{"advertisingID":14,"advertisingType":"1","advertisingPicture":"https://www.pgagolf.cn:4432/images/Advertising/ad5.jpg","advertisingVideo":"","advertisingStartDate":"2016-11-20T00:00:00","advertisingEndDate":"2016-12-20T00:00:00","advertisingShowTime":1,"communityID":0,"advertisingLocation":1}]
+     * version : null
+     * datetime : null
+     * accesstoken : null
+     * statuscode : 1
+     * statusmessage : 消息处理成功
+     * totalrownum : null
+     * totalpagenum : null
+     * nowpagenum : null
+     * pagerownum : null
+     */
+
+    private Object version;
+    private Object datetime;
+    private Object accesstoken;
+    private int statuscode;
+    private String statusmessage;
+    private Object totalrownum;
+    private Object totalpagenum;
+    private Object nowpagenum;
+    private Object pagerownum;
+    private List<?> tableColumnPermission;
     private List<ListAdvertisingBean> listAdvertising;
-    private List<ListSystemMsgBean> listSystemMsg;
+
+    public Object getVersion() {
+        return version;
+    }
+
+    public void setVersion(Object version) {
+        this.version = version;
+    }
+
+    public Object getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(Object datetime) {
+        this.datetime = datetime;
+    }
+
+    public Object getAccesstoken() {
+        return accesstoken;
+    }
+
+    public void setAccesstoken(Object accesstoken) {
+        this.accesstoken = accesstoken;
+    }
+
+    public int getStatuscode() {
+        return statuscode;
+    }
+
+    public void setStatuscode(int statuscode) {
+        this.statuscode = statuscode;
+    }
+
+    public String getStatusmessage() {
+        return statusmessage;
+    }
+
+    public void setStatusmessage(String statusmessage) {
+        this.statusmessage = statusmessage;
+    }
+
+    public Object getTotalrownum() {
+        return totalrownum;
+    }
+
+    public void setTotalrownum(Object totalrownum) {
+        this.totalrownum = totalrownum;
+    }
+
+    public Object getTotalpagenum() {
+        return totalpagenum;
+    }
+
+    public void setTotalpagenum(Object totalpagenum) {
+        this.totalpagenum = totalpagenum;
+    }
+
+    public Object getNowpagenum() {
+        return nowpagenum;
+    }
+
+    public void setNowpagenum(Object nowpagenum) {
+        this.nowpagenum = nowpagenum;
+    }
+
+    public Object getPagerownum() {
+        return pagerownum;
+    }
+
+    public void setPagerownum(Object pagerownum) {
+        this.pagerownum = pagerownum;
+    }
+
+    public List<?> getTableColumnPermission() {
+        return tableColumnPermission;
+    }
+
+    public void setTableColumnPermission(List<?> tableColumnPermission) {
+        this.tableColumnPermission = tableColumnPermission;
+    }
 
     public List<ListAdvertisingBean> getListAdvertising() {
         return listAdvertising;
@@ -20,40 +121,27 @@ public class AdvertisingInfo extends RequestBaseInfo{
         this.listAdvertising = listAdvertising;
     }
 
-    public List<ListSystemMsgBean> getListSystemMsg() {
-        return listSystemMsg;
-    }
-
-    public void setListSystemMsg(List<ListSystemMsgBean> listSystemMsg) {
-        this.listSystemMsg = listSystemMsg;
-    }
-
     public static class ListAdvertisingBean {
         /**
-         * advertisingID : 95
+         * advertisingID : 1
          * advertisingType : 1
-         * advertisingPicture : https://byt.bytsz.com.cn/images/Advertising/ad1.jpg
-         * dvertisingVideo : null
+         * advertisingPicture : https://www.pgagolf.cn:4432/images/Advertising/ad1.jpg
+         * advertisingVideo :
          * advertisingStartDate : 2016-11-20T00:00:00
-         * endAdvertisingStartDate : null
          * advertisingEndDate : 2016-12-20T00:00:00
-         * endAdvertisingEndDate : null
          * advertisingShowTime : 1
-         * communityID : 0
+         * communityID : 1
          * advertisingLocation : 1
          */
 
         private int advertisingID;
         private String advertisingType;
         private String advertisingPicture;
-        private Object dvertisingVideo;
+        private String advertisingVideo;
         private String advertisingStartDate;
-        private Object endAdvertisingStartDate;
         private String advertisingEndDate;
-        private Object endAdvertisingEndDate;
         private int advertisingShowTime;
-        @SerializedName("communityID")
-        private int communityIDX;
+        private int communityID;
         private int advertisingLocation;
 
         public int getAdvertisingID() {
@@ -80,12 +168,12 @@ public class AdvertisingInfo extends RequestBaseInfo{
             this.advertisingPicture = advertisingPicture;
         }
 
-        public Object getDvertisingVideo() {
-            return dvertisingVideo;
+        public String getAdvertisingVideo() {
+            return advertisingVideo;
         }
 
-        public void setDvertisingVideo(Object dvertisingVideo) {
-            this.dvertisingVideo = dvertisingVideo;
+        public void setAdvertisingVideo(String advertisingVideo) {
+            this.advertisingVideo = advertisingVideo;
         }
 
         public String getAdvertisingStartDate() {
@@ -96,28 +184,12 @@ public class AdvertisingInfo extends RequestBaseInfo{
             this.advertisingStartDate = advertisingStartDate;
         }
 
-        public Object getEndAdvertisingStartDate() {
-            return endAdvertisingStartDate;
-        }
-
-        public void setEndAdvertisingStartDate(Object endAdvertisingStartDate) {
-            this.endAdvertisingStartDate = endAdvertisingStartDate;
-        }
-
         public String getAdvertisingEndDate() {
             return advertisingEndDate;
         }
 
         public void setAdvertisingEndDate(String advertisingEndDate) {
             this.advertisingEndDate = advertisingEndDate;
-        }
-
-        public Object getEndAdvertisingEndDate() {
-            return endAdvertisingEndDate;
-        }
-
-        public void setEndAdvertisingEndDate(Object endAdvertisingEndDate) {
-            this.endAdvertisingEndDate = endAdvertisingEndDate;
         }
 
         public int getAdvertisingShowTime() {
@@ -128,12 +200,12 @@ public class AdvertisingInfo extends RequestBaseInfo{
             this.advertisingShowTime = advertisingShowTime;
         }
 
-        public int getCommunityIDX() {
-            return communityIDX;
+        public int getCommunityID() {
+            return communityID;
         }
 
-        public void setCommunityIDX(int communityIDX) {
-            this.communityIDX = communityIDX;
+        public void setCommunityID(int communityID) {
+            this.communityID = communityID;
         }
 
         public int getAdvertisingLocation() {
@@ -142,84 +214,6 @@ public class AdvertisingInfo extends RequestBaseInfo{
 
         public void setAdvertisingLocation(int advertisingLocation) {
             this.advertisingLocation = advertisingLocation;
-        }
-    }
-
-    public static class ListSystemMsgBean {
-        /**
-         * messageID : 1
-         * communityID : 0
-         * messageTime : 2016-12-20T00:00:00
-         * messageTitle : 系统消息
-         * messageContext : 一期
-         * userID : 0
-         * messageType : 1
-         */
-
-        private int messageID;
-        @SerializedName("communityID")
-        private int communityIDX;
-        private String messageTime;
-        private String messageTitle;
-        private String messageContext;
-        @SerializedName("userID")
-        private int userIDX;
-        private int messageType;
-
-        public int getMessageID() {
-            return messageID;
-        }
-
-        public void setMessageID(int messageID) {
-            this.messageID = messageID;
-        }
-
-        public int getCommunityIDX() {
-            return communityIDX;
-        }
-
-        public void setCommunityIDX(int communityIDX) {
-            this.communityIDX = communityIDX;
-        }
-
-        public String getMessageTime() {
-            return messageTime;
-        }
-
-        public void setMessageTime(String messageTime) {
-            this.messageTime = messageTime;
-        }
-
-        public String getMessageTitle() {
-            return messageTitle;
-        }
-
-        public void setMessageTitle(String messageTitle) {
-            this.messageTitle = messageTitle;
-        }
-
-        public String getMessageContext() {
-            return messageContext;
-        }
-
-        public void setMessageContext(String messageContext) {
-            this.messageContext = messageContext;
-        }
-
-        public int getUserIDX() {
-            return userIDX;
-        }
-
-        public void setUserIDX(int userIDX) {
-            this.userIDX = userIDX;
-        }
-
-        public int getMessageType() {
-            return messageType;
-        }
-
-        public void setMessageType(int messageType) {
-            this.messageType = messageType;
         }
     }
 }
