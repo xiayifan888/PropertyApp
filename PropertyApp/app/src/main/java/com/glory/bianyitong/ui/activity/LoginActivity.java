@@ -15,10 +15,13 @@ import android.widget.TextView;
 
 import com.glory.bianyitong.bean.AdvertisingInfo;
 import com.glory.bianyitong.bean.GetSMSCheckInfo;
+import com.glory.bianyitong.bean.GetSMSCodeInfo;
+import com.glory.bianyitong.bean.LoginUserInfo;
 import com.glory.bianyitong.bean.UserInfo;
 import com.glory.bianyitong.constants.Constant;
 import com.glory.bianyitong.http.HttpURL;
 import com.glory.bianyitong.http.OkGoRequest;
+import com.glory.bianyitong.http.RequestUtil;
 import com.glory.bianyitong.sdk.jpush.ExampleUtil;
 import com.glory.bianyitong.ui.dialog.ServiceDialog;
 import com.glory.bianyitong.util.DataUtils;
@@ -168,7 +171,9 @@ public class LoginActivity extends BaseActivity {
 
     //生成验证码
     private void createCode(final String phone) {
-        String json = "{\"phoneNum\":\"" + phone + "\"}";
+        String query = "\"phoneNum\":\"" + phone + "\"";
+        String json = RequestUtil.getJson(LoginActivity.this, query);
+
 //        String url = HttpURL.HTTP_LOGIN_AREA + "/SMSCode/GetSMSCheck";
         String url = HttpURL.HTTP_NEW_URL + "/SMSCode/GetSMSCheck";
         OkGoRequest.getRequest().setOnOkGoUtilListener(new OkGoRequest.OnOkGoUtilListener() {
@@ -181,6 +186,7 @@ public class LoginActivity extends BaseActivity {
                     JSONObject jo = new JSONObject(s);
                     GetSMSCheckInfo smsinfo = new Gson().fromJson(jo.toString(), GetSMSCheckInfo.class);
                     if(smsinfo!=null && smsinfo.getStatusCode() == 1){
+                        getCode(phone);
                         login_code.setFocusable(true);
                         login_code.setFocusableInTouchMode(true);
                         login_code.requestFocus();
@@ -220,7 +226,7 @@ public class LoginActivity extends BaseActivity {
     //获取验证码
     private void getCode(String phone) {
 //        String json = "{\"phoneNumber\":\"" + phone + "\"}";
-        OkGo.post(HttpURL.HTTP_LOGIN_AREA + "/SMSCode/GetVituralSMSCheckCode") //获取验证码
+        OkGo.post(HttpURL.HTTP_NEW_URL + "/SMSCode/GetVituralSMSCheckCode") //获取验证码
                 .tag(this)//
 //                .headers("", "")//
                 .params("phoneNumber", phone)
@@ -230,16 +236,31 @@ public class LoginActivity extends BaseActivity {
                         Log.i("resultString", "------------");
                         Log.i("resultString", s);
                         Log.i("resultString", "------------");
-                        HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
-                        });
-                        if (hashMap2 != null && hashMap2.get("msg") != null) {
-                            String code = hashMap2.get("msg").toString();
-//                            login_code.setText(code);
-                        } else if (hashMap2.get("alertmessage") != null) {
-                            ToastUtils.showToast(LoginActivity.this, hashMap2.get("alertmessage").toString());
-                        } else {
-                            ToastUtils.showToast(LoginActivity.this, getString(R.string.failed_to_generate_verification_code));//生成验证码失败
+                        try {
+                            JSONObject jo = new JSONObject(s);
+                            GetSMSCodeInfo getcodeinfo = new Gson().fromJson(jo.toString(), GetSMSCodeInfo.class);
+                            if(getcodeinfo!=null && getcodeinfo.getMsg()!=null){
+                                String code = getcodeinfo.getMsg();
+                                login_code.setText(code);
+                            }else if (getcodeinfo.getAlertMessage() != null) { //返回消息
+                                ToastUtils.showToast(LoginActivity.this, getcodeinfo.getAlertMessage());
+                            } else {
+                                ToastUtils.showToast(LoginActivity.this, getString(R.string.failed_to_generate_verification_code));//生成验证码失败
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+
+//                        HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
+//                        });
+//                        if (hashMap2 != null && hashMap2.get("msg") != null) {
+//                            String code = hashMap2.get("msg").toString();
+////                            login_code.setText(code);
+//                        } else if (hashMap2.get("alertmessage") != null) {
+//                            ToastUtils.showToast(LoginActivity.this, hashMap2.get("alertmessage").toString());
+//                        } else {
+//                            ToastUtils.showToast(LoginActivity.this, getString(R.string.failed_to_generate_verification_code));//生成验证码失败
+//                        }
                     }
 
                     @Override
@@ -279,8 +300,12 @@ public class LoginActivity extends BaseActivity {
             Database.registrationId = "";
         }
         Log.i("resultString", "registrationId---------" + Database.registrationId);
-        String json = "{\"phoneNumber\":\"" + phone + "\",\"smsCheckCode\":\"" + code + "\",\"DeviceType\": \"3\",\"jGPushID\":\"" + Database.registrationId + "\"}";
-        String url = HttpURL.HTTP_LOGIN_AREA + "/Login/AppLogin";
+        String query = "\"phoneNumber\":\""+phone+"\",\"smsCheckCode\":\""+code+"\"";
+        String json = RequestUtil.getJson(LoginActivity.this, query);
+        String url = HttpURL.HTTP_NEW_URL + "/ApiLogin/AppLogin";
+
+//        String json = "{\"phoneNumber\":\"" + phone + "\",\"smsCheckCode\":\"" + code + "\",\"DeviceType\": \"3\",\"jGPushID\":\"" + Database.registrationId + "\"}";
+//        String url = HttpURL.HTTP_LOGIN_AREA + "/Login/AppLogin";
         Log.i("resultString", "json------------" + json);
 
         OkGoRequest.getRequest().setOnOkGoUtilListener(new OkGoRequest.OnOkGoUtilListener() {
@@ -291,61 +316,56 @@ public class LoginActivity extends BaseActivity {
                 Log.i("resultString", "------------");
                 try {
                     JSONObject jo = new JSONObject(s);
-                    String statuscode = "";
-                    String statusmessage = "";
-                    if (jo.getString("statuscode") != null) {
-                        statuscode = jo.getString("statuscode");
-                    }
-                    if (jo.getString("statusmessage") != null) {
-                        statusmessage = jo.getString("statusmessage");
-                    }
-                    UserInfo userInfo = new Gson().fromJson(jo.toString(), UserInfo.class);
-                    Log.i("resultString", "userInfo.getUser()-------" + userInfo.getUser());
-                    if (userInfo != null && userInfo.getUser() != null) {
+//                    String statuscode = "";
+//                    String statusmessage = "";
+//                    if (jo.getString("statusCode") != null) {
+//                        statuscode = jo.getString("statusCode");
+//                    }
+//                    if (jo.getString("statusMessage") != null) {
+//                        statusmessage = jo.getString("statusMessage");
+//                    }
+//                    UserInfo userInfo = new Gson().fromJson(jo.toString(), UserInfo.class);
+//                    Log.i("resultString", "userInfo.getUser()-------" + userInfo.getUser());
+//                    if (userInfo != null && userInfo.getUser() != null) {
+//                        Database.islogin = true;
+//                        Database.USER_MAP = userInfo.getUser();
+//                        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, Database.USER_MAP.getJGPushName()));
+//                        if (userInfo.getUserCommnunity() != null) {
+////                            Database.my_community_List = userInfo.getUserCommnunity();
+//                            DataUtils.getUesrCommunity(userInfo.getUserCommnunity());//社区列表
+//                            DataUtils.my_community(LoginActivity.this); //获取我的社区
+//                        }
+//                        SharePreToolsKits.putJsonDataString(LoginActivity.this, Constant.user, s); //缓存登录后信息
+//                        //登录成功
+//                        LoginActivity.this.finish();
+//                    } else if (statusmessage != null && !statusmessage.equals("")) {
+//                        ToastUtils.showToast(LoginActivity.this, statusmessage);
+//                    }else {
+//                        ToastUtils.showToast(LoginActivity.this, getString(R.string.login_failed));//登录失败
+//                    }
+
+                    LoginUserInfo loginInfo = new Gson().fromJson(jo.toString(), LoginUserInfo.class);
+                    if (loginInfo != null && loginInfo.getUser() != null) {
                         Database.islogin = true;
-                        Database.USER_MAP = userInfo.getUser();
-                        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, Database.USER_MAP.getJGPushName()));
-                        if (userInfo.getUserCommnunity() != null) {
+                        Database.USER_MAP = loginInfo.getUser();
+                        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, Database.USER_MAP.getJgPushName()));
+                        if (loginInfo.getUserCommnunity() != null) {
 //                            Database.my_community_List = userInfo.getUserCommnunity();
-                            DataUtils.getUesrCommunity(userInfo.getUserCommnunity());//社区列表
+                            DataUtils.getUesrCommunity(loginInfo.getUserCommnunity());//社区列表
                             DataUtils.my_community(LoginActivity.this); //获取我的社区
                         }
                         SharePreToolsKits.putJsonDataString(LoginActivity.this, Constant.user, s); //缓存登录后信息
                         //登录成功
                         LoginActivity.this.finish();
-                    } else if (statusmessage != null && !statusmessage.equals("")) {
-                        ToastUtils.showToast(LoginActivity.this, statusmessage);
+                    } else if (loginInfo != null && !loginInfo.getStatusMessage().equals("")) {
+                        ToastUtils.showToast(LoginActivity.this, loginInfo.getStatusMessage());
                     }else {
                         ToastUtils.showToast(LoginActivity.this, getString(R.string.login_failed));//登录失败
                     }
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-//                HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
-//                });
-//                if (hashMap2 != null && hashMap2.get("user") != null) {
-//                    Database.islogin = true;
-////                    Database.USER_MAP = (LinkedTreeMap<String, Object>) hashMap2.get("user");
-////                    getUserMap((LinkedTreeMap<String, Object>) hashMap2.get("user"));
-//                    if (hashMap2.get("userCommnunity") != null) {
-//                        Database.my_community_List = (ArrayList<LinkedTreeMap<String, Object>>) hashMap2.get("userCommnunity");
-////                        getUesrCommunity((ArrayList<LinkedTreeMap<String, Object>>) hashMap2.get("userCommnunity"));
-//                        my_community();
-//                    }
-////                    if (Database.USER_MAP != null && Database.USER_MAP.get("jGPushName") != null) {
-////                        //调用JPush API设置Alias
-////                        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, Database.USER_MAP.get("jGPushName").toString()));
-////                    }
-////                    SharePreToolsKits.putJsonDataString(LoginActivity.this, Constant.user, s); //缓存登录后信息
-//                    //登录成功
-////                    LoginActivity.this.finish();
-//                } else if (hashMap2.get("alertmessage") != null) {
-//                    ToastUtils.showToast(LoginActivity.this, hashMap2.get("alertmessage").toString());
-//                } else {
-//                    ToastUtils.showToast(LoginActivity.this, "登录失败");
-//                }
             }
 
             @Override
@@ -433,46 +453,47 @@ public class LoginActivity extends BaseActivity {
      * jGPushName : V6NV8H86
      * roles : null
      */
-    private void getUserMap(LinkedTreeMap<String, Object> map) {
-        Database.USER_MAP = new UserInfo.UserBean();
-        if (map.get("userID") != null) {
-            Database.USER_MAP.setUserID(map.get("userID").toString());
-        }
-        if (map.get("userName") != null) {
-            Database.USER_MAP.setUserName(map.get("userName").toString());
-        }
-        if (map.get("gender") != null) {
-            Database.USER_MAP.setGender(Double.valueOf(map.get("gender").toString()).intValue());
-        }
-        if (map.get("loginName") != null) {
-            Database.USER_MAP.setLoginName(map.get("loginName").toString());
-        }
-        if (map.get("phoneNumber") != null) {
-            Database.USER_MAP.setPhoneNumber(map.get("phoneNumber").toString());
-        }
-        if (map.get("joinDate") != null) {
-            Database.USER_MAP.setJoinDate(map.get("joinDate").toString());
-        }
-        if (map.get("status") != null) {
-            Database.USER_MAP.setStatus(Double.valueOf(map.get("status").toString()).intValue());
-        }
-        if (map.get("customerPhoto") != null) {
-            Database.USER_MAP.setCustomerPhoto(map.get("customerPhoto").toString());
-        }
-        if (map.get("signature") != null) {
-            Database.USER_MAP.setSignature(map.get("signature").toString());
-        }
-        if (map.get("jGPushID") != null) {
-            Database.USER_MAP.setJGPushID(map.get("jGPushID").toString());
-        }
-        if (map.get("jGPushName") != null) {
-            Database.USER_MAP.setJGPushName(map.get("jGPushName").toString());
-        }
-        if (Database.USER_MAP.getJGPushName() != null) {
-            //调用JPush API设置Alias
-            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, Database.USER_MAP.getJGPushName()));
-        }
-    }
+//    private void getUserMap(LinkedTreeMap<String, Object> map) {
+////        Database.USER_MAP = new UserInfo.UserBean();
+//        Database.USER_MAP = new LoginUserInfo.UserBean();
+//        if (map.get("userID") != null) {
+//            Database.USER_MAP.setUserID(map.get("userID").toString());
+//        }
+//        if (map.get("userName") != null) {
+//            Database.USER_MAP.setUserName(map.get("userName").toString());
+//        }
+//        if (map.get("gender") != null) {
+//            Database.USER_MAP.setGender(Double.valueOf(map.get("gender").toString()).intValue());
+//        }
+//        if (map.get("loginName") != null) {
+//            Database.USER_MAP.setLoginName(map.get("loginName").toString());
+//        }
+//        if (map.get("phoneNumber") != null) {
+//            Database.USER_MAP.setPhoneNumber(map.get("phoneNumber").toString());
+//        }
+//        if (map.get("joinDate") != null) {
+//            Database.USER_MAP.setJoinDate(map.get("joinDate").toString());
+//        }
+//        if (map.get("status") != null) {
+//            Database.USER_MAP.setStatus(Double.valueOf(map.get("status").toString()).intValue());
+//        }
+//        if (map.get("customerPhoto") != null) {
+//            Database.USER_MAP.setCustomerPhoto(map.get("customerPhoto").toString());
+//        }
+//        if (map.get("signature") != null) {
+//            Database.USER_MAP.setSignature(map.get("signature").toString());
+//        }
+//        if (map.get("jGPushID") != null) {
+//            Database.USER_MAP.setJGPushID(map.get("jGPushID").toString());
+//        }
+//        if (map.get("jGPushName") != null) {
+//            Database.USER_MAP.setJGPushName(map.get("jGPushName").toString());
+//        }
+//        if (Database.USER_MAP.getJGPushName() != null) {
+//            //调用JPush API设置Alias
+//            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, Database.USER_MAP.getJGPushName()));
+//        }
+//    }
 
     /**
      * userCommunityID : 1024

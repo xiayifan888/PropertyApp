@@ -237,7 +237,8 @@ public class MyFragment extends BaseFragment {
             //签名
             if (Database.USER_MAP != null && Database.USER_MAP.getSignature() != null) {
                 String signature = tv_user_signature.getText().toString();
-                String signature2 = Database.USER_MAP.getSignature();
+//                String signature2 = Database.USER_MAP.getSignature();
+                String signature2 = Database.USER_MAP.getSignature().toString();
                 if (!signature.equals(signature2)) {
                     tv_user_signature.setText(signature2);
                 }

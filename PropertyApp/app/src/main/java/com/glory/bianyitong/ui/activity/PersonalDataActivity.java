@@ -122,7 +122,8 @@ public class PersonalDataActivity extends BaseActivity {
 //            }
             if (Database.USER_MAP != null && Database.USER_MAP.getSignature() != null) {
                 String signature = tv_personal_desc.getText().toString();
-                String signature2 = Database.USER_MAP.getSignature();
+//                String signature2 = Database.USER_MAP.getSignature();
+                String signature2 = Database.USER_MAP.getSignature().toString();
                 if (!signature.equals(signature2)) {
                     tv_personal_desc.setText(signature2);
                 }

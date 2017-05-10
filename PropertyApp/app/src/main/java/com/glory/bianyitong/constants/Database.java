@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.glory.bianyitong.bean.CommnunityInfo;
 import com.glory.bianyitong.bean.CommunityBulletinInfo;
 import com.glory.bianyitong.bean.FreashInfo;
+import com.glory.bianyitong.bean.LoginUserInfo;
 import com.glory.bianyitong.bean.UserInfo;
 import com.glory.bianyitong.bean.YellowPageAllInfo;
 import com.glory.bianyitong.bean.YellowPageGroupInfo;
@@ -33,7 +34,8 @@ public class Database {
 
     public static String login_return = null;// 登录后信息
 //    public static LinkedTreeMap<String, Object> USER_MAP = null;// 用户信息
-    public static UserInfo.UserBean USER_MAP = null;// 用户信息
+//    public static UserInfo.UserBean USER_MAP = null;// 用户信息
+    public static LoginUserInfo.UserBean USER_MAP = null;// 用户信息
 
 //    public static ArrayList<LinkedTreeMap<String, Object>> my_community_List = null;// 小区列表
 //    public static LinkedTreeMap<String, Object> my_community = null;// 我的小区

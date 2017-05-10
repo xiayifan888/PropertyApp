@@ -36,6 +36,7 @@ import android.widget.Toast;
 import com.glory.bianyitong.R;
 import com.glory.bianyitong.base.BaseFragment;
 import com.glory.bianyitong.bean.AuthAreaInfo;
+import com.glory.bianyitong.bean.LoginUserInfo;
 import com.glory.bianyitong.bean.UPVersionInfo;
 import com.glory.bianyitong.bean.UserInfo;
 import com.glory.bianyitong.constants.Constant;
@@ -332,7 +333,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             try {
                 Log.i("resultString", "Database.login_return-----" + Database.login_return);
                 JSONObject jo = new JSONObject(Database.login_return);
-                UserInfo userInfo = new Gson().fromJson(jo.toString(), UserInfo.class);
+//                UserInfo userInfo = new Gson().fromJson(jo.toString(), UserInfo.class);
+                LoginUserInfo userInfo = new Gson().fromJson(jo.toString(), LoginUserInfo.class);
                 Log.i("resultString", "userInfo.getUser()-------" + userInfo.getUser());
                 if (userInfo != null && userInfo.getUser() != null) {
                     Database.USER_MAP = userInfo.getUser();
@@ -368,35 +370,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         String json = "{\"settingkey\": \"WeiXinAppSecret\",\"controllerName\": \"\",\"actionName\": \"\",\"nowpagenum\": \"\",\"pagerownum\": \"\"," +
                 "\"userID\": \"" + userID + "\"}";
         String url = HttpURL.HTTP_LOGIN_AREA + "/Setting/SelectByKey";
-//        OkGo.post(HttpURL.HTTP_LOGIN_AREA + "/Setting/SelectByKey")
-//                .tag(this)//
-////                .headers("", "")//
-//                .params("request", json)
-//                .execute(new StringCallback() {
-//                    @Override
-//                    public void onSuccess(String s, Call call, Response response) {
-//                        Log.i("resultString", "------------");
-//                        Log.i("resultString", s);
-//                        Log.i("resultString", "------------");
-//                        HashMap<String, Object> hashMap2 = JsonHelper.fromJson(s, new TypeToken<HashMap<String, Object>>() {
-//                        });
-//                        if (hashMap2 != null && hashMap2.get("settingvalue") != null) {  //listYellowPageGroup
-//                            Constant.AppSecret = hashMap2.get("settingvalue").toString();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Call call, Response response, Exception e) {
-//                        super.onError(call, response, e);
-//                        Log.i("resultString", "请求错误------");
-//                    }
-//
-//                    @Override
-//                    public void parseError(Call call, Exception e) {
-//                        super.parseError(call, e);
-//                        Log.i("resultString", "网络解析错误------");
-//                    }
-//                });
+
         OkGoRequest.getRequest().setOnOkGoUtilListener(new OkGoRequest.OnOkGoUtilListener() {
             @Override
             public void onSuccess(String s) {

@@ -6,6 +6,7 @@ import android.util.Log;
 import com.glory.bianyitong.bean.AuthAreaInfo;
 import com.glory.bianyitong.bean.CommnunityInfo;
 import com.glory.bianyitong.bean.FreashInfo;
+import com.glory.bianyitong.bean.LoginUserInfo;
 import com.glory.bianyitong.bean.UserInfo;
 import com.glory.bianyitong.constants.Constant;
 import com.glory.bianyitong.constants.Database;
@@ -83,22 +84,20 @@ public class DataUtils {
      * unitName : A单元
      * approvalDate : 2017-01-03T16:14:00
      */
-    public static void getUesrCommunity(List<UserInfo.UserCommnunityBean> list) {
+    public static void getUesrCommunity(List<LoginUserInfo.UserCommnunityBean> list) {
         Database.my_community_List = null;
         Database.my_community_List = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) != null) {
-                UserInfo.UserCommnunityBean userCommnunityBean = list.get(i);
+                LoginUserInfo.UserCommnunityBean userCommnunityBean = list.get(i);
                 CommnunityInfo commnunityInfo = new CommnunityInfo();
                 if (userCommnunityBean.getUserCommunityID() != 0) {
                     commnunityInfo.setUserCommunityID(userCommnunityBean.getUserCommunityID());
                 }else {
                     commnunityInfo.setUserCommunityID(0);
                 }
-                if (userCommnunityBean.getUserID() != 0) {
+                if (userCommnunityBean.getUserID() != null) {
                     commnunityInfo.setUserID(userCommnunityBean.getUserID());
-                }else {
-                    commnunityInfo.setUserID(0);
                 }
                 if (userCommnunityBean.getUserName() != null) {
                     commnunityInfo.setUserName(userCommnunityBean.getUserName());
@@ -130,21 +129,21 @@ public class DataUtils {
                 }else {
                     commnunityInfo.setProvinceID(0);
                 }
-                if (userCommnunityBean.getProvinceName() != null) {
-                    commnunityInfo.setProvinceName(userCommnunityBean.getProvinceName());
-                }else {
-                    commnunityInfo.setProvinceName("");
-                }
+//                if (userCommnunityBean.getProvinceName() != null) {
+//                    commnunityInfo.setProvinceName(userCommnunityBean.getProvinceName());
+//                }else {
+//                    commnunityInfo.setProvinceName("");
+//                }
                 if (userCommnunityBean.getCityID() != 0) {
                     commnunityInfo.setCityID(userCommnunityBean.getCityID());
                 }else {
                     commnunityInfo.setCityID(0);
                 }
-                if (userCommnunityBean.getCityName() != null) {
-                    commnunityInfo.setCityName(userCommnunityBean.getCityName());
-                }else {
-                    commnunityInfo.setCityName("");
-                }
+//                if (userCommnunityBean.getCityName() != null) {
+//                    commnunityInfo.setCityName(userCommnunityBean.getCityName());
+//                }else {
+//                    commnunityInfo.setCityName("");
+//                }
                 if (userCommnunityBean.getBuildingID() != 0) {
                     commnunityInfo.setBuildingID(userCommnunityBean.getBuildingID());
                 }else {
