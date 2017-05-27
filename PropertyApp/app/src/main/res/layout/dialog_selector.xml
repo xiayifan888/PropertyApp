@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/please_select_the_time"
+                android:padding="10dp"
                 android:textColor="@color/color_orange"
                 android:textSize="17sp" />
 
